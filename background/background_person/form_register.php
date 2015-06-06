@@ -9,7 +9,6 @@ $userName=$_POST['realname'];
 $userSchool=$_POST['school'];
 $regTime = time();
 
-
 if($_POST['ousertel']){
 	$ousertel=$_POST['ousertel'];
 	$query_1=mysql_query("select uId from user where userTel='$ousertel'");

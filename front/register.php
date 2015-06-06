@@ -103,7 +103,10 @@ error_reporting(E_ALL & ~E_NOTICE);
 
 <!--弹出选择学校对话框-->
 <div class="school" id="school_box" style="display:n e;">
-    
+    <div class="shead">
+    	<strong>选择学校:</strong>
+    	
+    </div>
 </div>
 
 </body>
