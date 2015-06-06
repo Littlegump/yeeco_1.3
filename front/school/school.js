@@ -50,30 +50,38 @@ window.onload = function (){
     }); 
   
     //重写鼠标滑动事件
-	var scroolly=mark;
+	
 	$(".ui-select-options").on("mousewheel DOMMouseScroll", MouseWheelHandler);
-	function MouseWheelHandler(e) {
+
+	function MouseWheelHandler(e) {	
+	    var scroolly=parseInt($(".ui-scrollbar-bar").css("top"));
 		e.preventDefault();
 		var value = e.originalEvent.wheelDelta || -e.originalEvent.detail;
 		var delta = Math.max(-1, Math.min(1, value));
 			if (delta < 0) {
-				if(scroolly<=198 && scroolly>=-1.7){
-					scroolly=scroolly+9.9;
+				scroolly=scroolly+10;
+				if(scroolly<=196 && scroolly>=0){
 					$('.ui-scrollbar-bar').css({'top':scroolly});
-					$('.ui-menu').css({'top':-4.34*scroolly});
-			    }
+					$('.ui-menu').css({'top':-4.34*scroolly});					
+			    }else{
+					$('.ui-scrollbar-bar').css({'top':198});
+					$('.ui-menu').css({'top':-4.34*198});	
+				}
 			}else {
-				if(scroolly<=199 && scroolly>=0){
-					scroolly=scroolly-9.9;
+				scroolly=scroolly-10;
+				if(scroolly<=196 && scroolly>=0){
 					$('.ui-scrollbar-bar').css({'top':scroolly});
-					$('.ui-menu').css({'top':-4.34*scroolly});
-			    }
+					$('.ui-menu').css({'top':-4.34*scroolly});				
+			    }else{
+					$('.ui-scrollbar-bar').css({'top':0});
+					$('.ui-menu').css({'top':0});
+				}
 			}
 		return false;
 	}
 	
 	//点击li选择省份
-    $(".ui-select-options ul li").click(function (event) {
+    $(".ui-select-options ul li").click(function (event){
 		var o=$(this).text();
 		$(".ui-select-selected").text(o);
 		$(".ui-select-options").hide();
