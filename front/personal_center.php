@@ -1,8 +1,17 @@
 <?php
-session_start();
-error_reporting(E_ALL & ~E_NOTICE);
-//获取页面信息，action表示要去往的页面，“”表示去往“我的动态”，“info”表示去往“个人资料”，“account”表示去往“账号信息”；
-$action = $_GET['action'];
+	session_start();
+	error_reporting(E_ALL & ~E_NOTICE);
+	//获取页面信息，action表示要去往的页面，“”表示去往“我的动态”，“info”表示去往“个人资料”，“account”表示去往“账号信息”；
+	$action = $_GET['action'];
+	$status = $_GET['status'];
+	require_once('../background/conf/connect.php');
+	$uId=$_SESSION['userId'];
+	if($status == "unactive"){
+		$result=mysql_fetch_array(mysql_query("select userTel from pre_user where pId='$uId' limit 1"));
+	}else{
+		$result=mysql_fetch_array(mysql_query("select userTel from user where uId='$uId' limit 1"));
+		$status == "";
+		}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -64,6 +73,7 @@ $action = $_GET['action'];
 
 <?php
 	}else if($action == "account"){
+		
 ?>
 <!--账号信息页面-->   
 <div class="main" id="main_3">
@@ -71,10 +81,10 @@ $action = $_GET['action'];
         <li class="title_left">账号信息</li>
     </div>
     <div class="contact">
-    	<form class="tel_form" action="#" method="post">
+    	<form class="tel_form" action="../background/background_person/modify_userinfo.php?status=$status" method="post">
           <li>
             <label>当前账号：</label>
-            <input name="userTel" type="text" value="88888888888" readonly="readonly" onfocus="outline_new(this)" onblur="outline_old(this)"  onkeydown="disappear('otel');"/>
+            <input name="userTel" type="text" value="<?php echo $result['userTel']?>" readonly="readonly" onfocus="outline_new(this)" onblur="outline_old(this)"  onkeydown="disappear('otel');" />
           </li>
           <li><span id="otel" style="display:none"></span></li>
           <li><a class="gray" href="javascript:change_tel()">绑定其他手机号</a></li>
@@ -87,16 +97,16 @@ $action = $_GET['action'];
           <input type="submit" class="button" value="确认修改" style="display:none;"/>
         </form>
         <div style="width:750px;border-bottom:1px solid #f2f2f2;margin:35px auto;"></div>
-        <form class="password_form" action="#" method="post">
+        <form class="password_form" action="../background/background_person/modify_userinfo.php?status=$status" method="post">
         <ul>
           <li>
             <label>当前密码：</label>
-            <input name="password_old" type="password" onfocus="outline_new(this)" onblur="outline_old(this)" onkeydown="disappear('span_1');"/>
+            <input name="password_old" type="password" onfocus="outline_new(this)" onblur="outline_old(this)" onkeydown="disappear('span_1');" required="required"/>
           </li>
           <li><span id="span_1" style="display:none"></span></li>
           <li>
             <label>设置密码：</label>
-            <input name="password_1" type="password"  placeholder="密码不得少于六位" onfocus="outline_new(this)"  onblur="outline_old(this);checking_2(this)"  onkeydown="disappear('span_2');"/>
+            <input name="password_1" type="password"  placeholder="密码不得少于六位" onfocus="outline_new(this)"  onblur="outline_old(this);checking_2(this)"  onkeydown="disappear('span_2');" required="required"/>
           </li>
           <li><span id="span_2" style="display:none">密码长度至少6位！</span></li>
           <li>

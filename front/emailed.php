@@ -1,6 +1,7 @@
 <?php
 session_start();
 error_reporting(E_ALL & ~E_NOTICE);
+$sId=$_GET['sId'];
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -31,7 +32,7 @@ error_reporting(E_ALL & ~E_NOTICE);
     <div class="welcome">
        <p>激活邮件已发送至您的邮箱！</p>
        <p>请注意查收并及时激活您的社团！</p>
-       <p>如果长时间未收到，点此<a href="" class="gray">重新发送</a></p>
+       <p>如果长时间未收到，点此<a href="../background/background_society/email_resend.php?sId=$sId" class="gray">重新发送</a></p>
     </div>
 </div>
 

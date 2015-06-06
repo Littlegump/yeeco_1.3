@@ -10,13 +10,11 @@ $objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel);
 //或者$objWriter = new PHPExcel_Writer_Excel5($objPHPExcel); 非2007格式
 $objPHPExcel->setActiveSheetIndex(0); 
 	$act_sheet_obj=$objPHPExcel->getActiveSheet(); 
-$act_sheet_obj->setTitle('data'); 
-$act_sheet_obj->getColumnDimension('A')->setWidth(15);
-$act_sheet_obj->getColumnDimension('B')->setWidth(15);
-$act_sheet_obj->getColumnDimension('C')->setWidth(50);
+	$act_sheet_obj->setTitle('data'); 
+	$act_sheet_obj->getColumnDimension('A')->setWidth(15);
+	$act_sheet_obj->getColumnDimension('B')->setWidth(15);
 	$act_sheet_obj->setCellValue('A1','姓名');
 	$act_sheet_obj->setCellValue('B1','电话'); 
-	$act_sheet_obj->setCellValue('C1','学校'); 
 $objWriter->save("易科社团成员添加模板.xlsx");
 //直接输出到浏览器
 $objWriter = new PHPExcel_Writer_Excel5($objPHPExcel);

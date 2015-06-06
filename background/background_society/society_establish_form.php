@@ -27,8 +27,8 @@
 	$mailbody = getEmailBody($id,$flag,$principalId,$sName);
 	$flag=$smtp->sendmail($smtpemailto, $smtpusermail, $mailsubject, $mailbody, $mailtype);
 	if($flag && $insertsql){
-		echo "<script>window.location.href='../../front/emailed.php'</script>";
+		echo "<script>window.location.href='../../front/emailed.php?sId=$id'</script>";
 	}else{
-		echo "<script>alert('社团创建失败！');window.location.hre../../front/society_establish.php'</script>";
+		echo "<script>alert('社团创建失败,请重新创建!');window.location.href='../../front/society_establish.php'</script>";
 	}
 ?>
