@@ -8,7 +8,7 @@
 	if(!mysql_select_db('yeecosociety')){
 		echo mysql_error();
 	}
-	//字符集 
+	//字符集abc 
 	
 	if(!mysql_query('set names utf8')){
 		echo mysql_error();
