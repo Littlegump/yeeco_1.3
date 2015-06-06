@@ -22,18 +22,13 @@
 	//向数据库插入社团注册信息
 	$insertsql = mysql_query("insert into pre_society(sName,sSchool,sPrincipal,uId,sCate,sDesc,sImg,email,flag) values('$sName','$sSchool','$sPrincipal','$principalId','$sCate','$sDesc','$sImg','$email','$flag')");
 	$id = mysql_insert_id();//此id为新增社团的主键id
-	$_SESSION['sName'] = $sName;
-    $_SESSION['sId'] = $id;
-	$_SESSION['sSchool']=$sSchool;
 	//发送邮件
 	$smtpemailto=$email;
-	$mailbody = getEmailBody($id,$flag);
-	$smtp->sendmail($smtpemailto, $smtpusermail, $mailsubject, $mailbody, $mailtype);
-	exit;
-	//返回“我管理的社团”
-	 if($insertsql){
-		echo "<script>alert('您已经成功创建了一个社团！');window.location.href='../society-mycharge-information.php?id=$id'</script>";
+	$mailbody = getEmailBody($id,$flag,$principalId,$sName);
+	$flag=$smtp->sendmail($smtpemailto, $smtpusermail, $mailsubject, $mailbody, $mailtype);
+	if($flag && $insertsql){
+		echo "<script>window.location.href='../../front/emailed.php'</script>";
 	}else{
-		echo "<script>alert('社团创建失败！');window.location.href='../society-establish.php'</script>";
+		echo "<script>alert('社团创建失败！');window.location.hre../../front/society_establish.php'</script>";
 	}
 ?>

@@ -15,7 +15,6 @@ error_reporting(E_ALL & ~E_NOTICE);
 
 
 <body>
-
 <div class="top_back">
   <div class="top">
       <div class="top_logo"><a href="../index.jsp"><img src="../image/web_image/logo.png"/></a></div>
@@ -24,9 +23,9 @@ error_reporting(E_ALL & ~E_NOTICE);
             <li>
                 <span><img src="../image/web_image/image_g"/></span>
                 <span><?php echo $_SESSION['userName']?></span>
-            </li>    
+            </li> 
             <div style="clear:both;"></div>
-            <a href=""><li>个人中心</li></a>
+            <a href="personal_center.php"><li>个人中心</li></a>
             <a href=""><li>易可助手</li></a>
             <a href="../background/background_person/login.php?action=logout"><li>退出登录</li></a>
           </ul>

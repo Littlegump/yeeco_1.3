@@ -11,8 +11,8 @@ error_reporting(E_ALL & ~E_NOTICE);
 <link href="css/main.css" type="text/css" rel="stylesheet">
 <script src="js/main.js"></script>
 <script src="js/jquery-1.11.1.js"></script>
+<script src="js/pic_preview.js"></script>
 <script src="js/society_establish.js" type="text/javascript"></script>
-<script type="text/javascript" src="js/pic_preview.js"></script>
 </head>
 
 <body>
@@ -71,7 +71,7 @@ error_reporting(E_ALL & ~E_NOTICE);
         <li>
             <label for="pic">&nbsp;&nbsp;社团封面：</label>
             <div class="pic" id="dd"><img id="pre_img" src="../image/web_image/社团封面.png"/></div>
-            <input type="file" id="pic" name="pic" accept="image/gif/png/jpeg/jpg" onchange="setImagePreviews();"/>
+            <input id="pic" type="file" name="pic" accept="image/gif/png/jpeg/jpg" onchange="setImagePreviews();"/>
             <p>请选择不超过1M的 .gif, .jpg, .jpeg 或 .png文件</p>
             <a href="javascript:delete_pic()">移除图片</a><span style="color:#999">（如果未上传将使用默认图片）</span>
             <div style="clear:both;"></div>
@@ -95,7 +95,6 @@ error_reporting(E_ALL & ~E_NOTICE);
     </div>
   </div>  
 </div>
-
 <!--侧边快捷操作面板--> 
 <div class="icon_box">
      <a href=""><div id="icon_1"></div></a>

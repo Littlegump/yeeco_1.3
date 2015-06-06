@@ -4,7 +4,8 @@ require_once('../conf/connect.php');
 session_start();
 //获取参数值
 $sid=$_GET['sid'];
-$_SESSION['sId']=$sid;
+$uid=$_GET['uid'];
+$sName=$_GET['sName'];
 $flag=$_GET['flag'];
 $isActivition=mysql_query("select * from pre_society where sId='$sid'");
 $result = mysql_fetch_array($isActivition);
@@ -18,7 +19,7 @@ if(!$result){
 				$updatesql=mysql_query("update society set regTime='$regTime' where sId='$sid'");
 				$delete_old = mysql_query("delete from pre_society where sId='$sid'");	
 			if( $insertsql && $updatesql && $delete_old ){
-				echo "<script>window.location.href='../../front/new_society.php';</script>";
+				echo "<script>window.location.href='../../front/new_society.php?uId=$uid&sId=$sid&sName=$sName';</script>";
 				}else{
 				echo "<script>alert('激活失败');</script>";
 				}

@@ -4,7 +4,7 @@ require_once '../../conf/connect.php';
 require_once 'PHPExcel.php';
 require_once 'PHPExcel\IOFactory.php';
 require_once 'PHPExcel\Reader\Excel5.php';
-function uploadFile($sId,$file){	
+function uploadFile($sId,$file,$sSchool){	
 if($file){
 //上传到服务器上的临时文件名
 $filetempname = $_FILES['members']['tmp_name'];
@@ -36,10 +36,17 @@ if($result){
 			}
 		//explode:函数把字符串分割为数组。
 			$strs = explode("\\",$str);
-			mysql_query("insert into pre_user(userName,userTel,userSchool) values('$strs[0]','$strs[1]','$strs[2]')");
-			$pid= mysql_insert_id();
-			mysql_query("insert into preuser_society_relation(pid,sid,isDepManager) values('$pid','$sId','0')");
-			$str="";	
+			$res=mysql_fetch_array(mysql_query("select uId from user where userTel='$strs[1]'"));
+			if(!$res){
+				mysql_query("insert into pre_user(userName,userTel,userSchool) values('$strs[0]','$strs[1]','$sSchool')");
+				$pid= mysql_insert_id();
+				mysql_query("insert into preuser_society_relation(pid,sid,isDepManager) values('$pid','$sId','0')");
+				
+			}else{
+				$uId=$res['uId'];
+				mysql_query("insert into user_society_relation(userId,societyId,isManage) values('$uId','$sId','0')");
+				}
+		$str="";
 		}
 		unlink($uploadfile);//删除上传的excel文件
 		return 1;//导入成功	

@@ -35,6 +35,19 @@ function page_to(page_a,page_b){
 	document.getElementById("guide").getElementsByTagName("li").item(page_a).className = 'on';
 	document.getElementById("guide").getElementsByTagName("li").item(page_b).className = ''; 
 }
+//点击guide实现任意页面跳转,page表示要去页面
+function free_skipPage(page){
+	var divId=['0','1','2','3'];
+	for(var i=0;i<=divId.length;i++){
+			if(page==divId[i]){
+					document.getElementById(page).style.display="";
+					document.getElementById("guide").getElementsByTagName("li").item(page).className = 'on';
+				}else{
+					document.getElementById(divId[i]).style.display="none";	
+					document.getElementById("guide").getElementsByTagName("li").item(divId[i]).className = '';
+				}
+		}
+}
 
 //异步提交表单功能
 $(document).ready(function () {

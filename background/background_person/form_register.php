@@ -5,7 +5,7 @@ error_reporting(E_ALL & ~E_NOTICE);
 //获取表单数据
 $userTel = $_POST['usertel'];
 $password = $_POST['password1'];
-$userName=$_POST['realname'];asdfasdf
+$userName=$_POST['realname'];
 $userSchool=$_POST['school'];
 $regTime = time();
 

@@ -1,6 +1,18 @@
 <?php
-session_start();
-error_reporting(E_ALL & ~E_NOTICE);
+	session_start();
+	error_reporting(E_ALL & ~E_NOTICE);
+	require_once('../background/conf/connect.php');
+	$uId=$_GET['uId'];
+	$sId=$_GET['sId'];
+	$sName=$_GET['sName'];
+   //查找该用户
+    $check_query = mysql_query("select * from user where uId='$uId' limit 1");
+    $result = mysql_fetch_array($check_query);
+	//执行登录操作
+	$_SESSION['sId']=$sId;
+	$_SESSION['userName'] = $result['userName'];
+    $_SESSION['userId'] = $result['uId'];
+	$_SESSION['sSchool']=$result['userSchool'];	  
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -33,7 +45,7 @@ error_reporting(E_ALL & ~E_NOTICE);
 <div class="page_pre" id="page_pre">
     <div class="hello_pic"></div>
     <div class="welcome">
-        <p>恭喜您！您已经成功地激活了社团“####”</p>
+        <p>恭喜您！您已经成功地激活了社团<?php echo $sName?></p>
         <p>下面跟随易可助手帮助完善您的社团资料！</p>
         <p>若<strong class="time">6</strong>秒后页面未自动跳转，点此<a id="begin" class="gray" href="javascript:turn()">跳转页面</a></p>
     </div>
@@ -43,18 +55,18 @@ error_reporting(E_ALL & ~E_NOTICE);
 <!--导航标题-->
 <div class="guide" id="guide" style="display:none">
   <ul>
-    <li class="on">组织架构</li>
-    <li>添加成员</li>
-    <li>专属二维码</li>
-    <li>创建完成</li>
+    <li class="on" style="cursor: pointer" onclick="free_skipPage('0')">组织架构</li>
+    <li style="cursor: pointer" onclick="free_skipPage('1')">添加成员</li>
+    <li style="cursor: pointer" onclick="free_skipPage('2')">专属二维码</li>
+    <li style="cursor: pointer" onclick="free_skipPage('3')">创建完成</li>
   </ul>
 </div>
 
 
 <!--第一页-->
 <div class="page_1" id="0" style="display:none">
-  <form class="framwork" id="form_1" action="actived.php" method="post">
-  <div class="leader_team"><label>架构名称：</label><input type="text" name="leader_team" value="<?php echo $dd?>2015届领导班子" /></div>
+  <form class="framwork" id="form_1" action="../background/background_society/dep_structure/dep_struct_form.php" method="post">
+  <div class="leader_team"><label>架构名称：</label><input type="text" name="leader_team" value="<?php echo $sName?>2015届领导班子" /></div>
   <div class="left"> 
       <input type="text" name="position" placeholder="职位" value="社长" onfocus="outline_new(this)" onblur="outline_old(this)"/>
       <input type="text" name="me" value="我" disabled="disabled"/>
@@ -75,14 +87,14 @@ error_reporting(E_ALL & ~E_NOTICE);
     </div>
     <div id="all_dep">
       <div id="dep_1" class="new_dep"> 
-        <input type="text" name="dep_name[]" placeholder="部门名称" onfocus="outline_new(this)" onblur="outline_old(this)"/>
-        <input type="text" name="position_1[]" placeholder="职位" onfocus="outline_new(this)" onblur="outline_old(this)"/>
+        <input type="text" name="dep_name[]" placeholder="部门名称" onfocus="outline_new(this)" onblur="outline_old(this)" required="required"/>
+        <input type="text" name="position_1[]" placeholder="职位" onfocus="outline_new(this)" onblur="outline_old(this)" required="required"/>
         <input type="text" name="position_2[]" placeholder="职位" onfocus="outline_new(this)" onblur="outline_old(this)"/>
         <input type="text" name="position_3[]" placeholder="职位" onfocus="outline_new(this)" onblur="outline_old(this)"/>
-        <input type="text" name="manager_1[]" placeholder="姓名" onfocus="outline_new(this)" onblur="outline_old(this)"/>
+        <input type="text" name="manager_1[]" placeholder="姓名" onfocus="outline_new(this)" onblur="outline_old(this)" required="required"/>
         <input type="text" name="manager_2[]" placeholder="姓名" onfocus="outline_new(this)" onblur="outline_old(this)"/>
         <input type="text" name="manager_3[]" placeholder="姓名" onfocus="outline_new(this)" onblur="outline_old(this)"/>
-        <input type="text" name="tel_1[]" placeholder="联系方式" onfocus="outline_new(this)" onblur="outline_old(this)"/>
+        <input type="text" name="tel_1[]" placeholder="联系方式" onfocus="outline_new(this)" onblur="outline_old(this)" required="required"/>
         <input type="text" name="tel_2[]" placeholder="联系方式" onfocus="outline_new(this)" onblur="outline_old(this)"/>
         <input type="text" name="tel_3[]" placeholder="联系方式" onfocus="outline_new(this)" onblur="outline_old(this)"/>
       </div>
@@ -113,7 +125,7 @@ error_reporting(E_ALL & ~E_NOTICE);
 	<div class="invite_1" onclick="add_1()"><img style="display:none" src="../image/web_image/逐一添加.png"></div>
     <div class="invite_2" onclick="add_2()"><img style="display:none" src="../image/web_image/批量导入.png"></div>
     <div style="clear:both;"></div>
-<form class="new_member" id="form_" action="../background/background_society/invite.php" method="post" enctype="multipart/form-data">
+<form class="new_member" id="form_2" action="../background/background_society/dep_structure/dep_members_form.php" method="post" enctype="multipart/form-data">
     <div class="way_1" style="display:none">
         <strong>逐一添加：</strong>
         <ul id="member_all">
@@ -127,10 +139,10 @@ error_reporting(E_ALL & ~E_NOTICE);
     </div>
     <div class="way_2" style="display:none">
         <strong>批量导入：</strong>
-        <p>·第一步：点此<a href="">下载Excel模板</a>；</p>
+        <p>·第一步：点此<a href="../background/excel/downloadExcel.php">下载Excel模板</a>；</p>
         <p>·第二部：严格按模板格式填写对应内容，每个成员为一行；</p>
         <p>·第三步：上传填写好的Excel模板</p>
-        <input type="file" name="members" />
+        <input type="file" name="members" accept="xlsx"/>
     </div>
   
   <div class="direction">
@@ -146,21 +158,20 @@ error_reporting(E_ALL & ~E_NOTICE);
 </div>
 <!--第三页--> 
 <div class="page_3" id="2" style="display:none">
-<div style="height:300px;width:300px;background:#CF0;margin:auto;"><input type="submit" value="生成二维码" class="button" onclick="getCode()"/>这一页我真的写不出来了，，以后再写吧。。。<a href="http://cli.im/api/qrcode">生成二维码</a>
-</div></div>
-
-
-
-
-
-
-<!--侧边快捷操作面板--> 
+<div style="height:300px;width:300px;background:#CF0;margin:auto;"><input type="submit" value="生成二维码" class="button" onclick="getCode()"/>这一页我真的写不出来了，，以后再写吧。。。<a href="http://cli.im/api/qrcode">生成二维码</a></div>
+</div>
+<!--第四页--> 
+<div class="page_4" id="3" style="display:none">
+<div style="height:300px;width:300px;background:#CF0;margin:auto;">
+<input name="finish" value="这是创建完成界面"/>
+</div>
+</div>
+<!--侧边快捷操作面板-->
 <div class="icon_box">
      <a href=""><div id="icon_1"></div></a>
      <a href="personal_center.php"><div id="icon_2"></div></a>
      <a href="../background/background_person/login.php?action=logout"><div id="icon_3"></div></a>
 </div>
-
 </body>
 </html>
 

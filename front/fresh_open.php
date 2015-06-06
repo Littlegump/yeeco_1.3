@@ -1,3 +1,7 @@
+<?php
+session_start();
+error_reporting(E_ALL & ~E_NOTICE);
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -21,9 +25,9 @@
     </div>
     
     <div class="contact">
-    <form action="background/fresh-open-form.php" method="post" name="activity_establish" id="activity_form" enctype="multipart/form-data">
-    <input type="hidden" name="sId" value="<?php echo $id?>">
-    <input type="hidden" name="sName" value="<?php echo $sName?>">
+    <form action="../background/background_society/society_fresh_form.php" method="post" name="activity_establish" id="activity_form" enctype="multipart/form-data">
+    <input type="hidden" name="sId" value="<?php echo $_SESSION['sId']?>">
+    <input type="hidden" name="sName" value="<?php echo $_SESSION['sName']?>">
       <div class="page_1" id="0">
           <ul>
             <li>

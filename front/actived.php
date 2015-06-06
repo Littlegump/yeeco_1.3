@@ -34,14 +34,6 @@ error_reporting(E_ALL & ~E_NOTICE);
        <p>该社团已被激活过了！</p>
     </div>
 </div>
-
-<!--侧边快捷操作面板--> 
-<div class="icon_box">
-     <a href=""><div id="icon_1"></div></a>
-     <a href=""><div id="icon_2"></div></a>
-     <a href="../background/background_person/login.php?action=logout"><div id="icon_3"></div></a>
-</div>
-
 </body>
 </html>
 
