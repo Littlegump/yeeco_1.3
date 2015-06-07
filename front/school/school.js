@@ -85,7 +85,7 @@ window.onload = function (){
 //******************************学校列表****************************************
 
 
-	
+	var n=65;
     var k=8.2;
     //拖拽事件，滚动条滚动
     $('.ui-scrollbar-bar_2').mousedown(function (){
@@ -97,7 +97,7 @@ window.onload = function (){
 			//拖拽时产生的事件响应
 			var t=d+mark_2;//t表示进度条距离顶部的高度
 			$(".ui-scrollbar-bar").addClass("temp_b");
-			if(t<=237 && t>=0){
+			if(t<=270-(2144/n-2) && t>=0){
 				$('.ui-scrollbar-bar_2').css({'top':t});
 				$('.school_list ul').css({'top':-k*t});
 			}
@@ -115,16 +115,16 @@ window.onload = function (){
 		var delta2 = Math.max(-1, Math.min(1, value2));
 			if (delta2 < 0) {
 				scroolly2=scroolly2+10;
-				if(scroolly2<=237 && scroolly2>=0){
+				if(scroolly2<=270-(2144/n) && scroolly2>=0){
 					$('.ui-scrollbar-bar_2').css({'top':scroolly2});
 					$('.school_list ul').css({'top':-k*scroolly2});					
 			    }else{
-					$('.ui-scrollbar-bar_2').css({'top':237});
-					$('.school_list ul').css({'top':-k*237});	
+					$('.ui-scrollbar-bar_2').css({'top':270-(2144/n)});
+					$('.school_list ul').css({'top':-k*(270-(2144/n))});	
 				}
 			}else {
 				scroolly2=scroolly2-10;
-				if(scroolly2<=237 && scroolly2>=0){
+				if(scroolly2<=270-(2144/n) && scroolly2>=0){
 					$('.ui-scrollbar-bar_2').css({'top':scroolly2});
 					$('.school_list ul').css({'top':-k*scroolly2});				
 			    }else{
@@ -147,19 +147,24 @@ window.onload = function (){
 		$(".ui-icon-triangleb").css({'background-position':'14px -21px'});
 		i=0;
 		//更改school_list数据
-		$("#school_list ul").load("school.php",{"pro_id":pro_id},function(){
+		$("#school_list ul").load("school/school.php",{"pro_id":pro_id},function(){
 			//计算所需要的li行数
     		n=Math.ceil($(".school_list ul li").length/ 3); 		
         	//确定滚动条高度
 	    	$(".ui-scrollbar-bar_2").height(2144/n-6);
 			//窗口高度是滚动条高度的k倍
 			k=(270*n)/2140;
+			if(k<1){
+				$('.ui-scrollbar-bar_2').css({'display':'none'});
+			}else{
+				$('.ui-scrollbar-bar_2').css({'display':'block'});
+			}
+			$('.ui-scrollbar-bar_2').css({'top':0});
+			$('.school_list ul').css({'top':0});
+			$.getScript("js/script_person.js");
 		});
-		
-		
-		
-	});	
-	
+	});		
 	
 }
+
 
