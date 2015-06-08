@@ -1,18 +1,3 @@
-<?php
-	session_start();
-	error_reporting(E_ALL & ~E_NOTICE);
-	//获取页面信息，action表示要去往的页面，“”表示去往“我的动态”，“info”表示去往“个人资料”，“account”表示去往“账号信息”；
-	$action = $_GET['action'];
-	$status = $_GET['status'];
-	require_once('../background/conf/connect.php');
-	$uId=$_SESSION['userId'];
-	if($status == "unactive"){
-		$result=mysql_fetch_array(mysql_query("select userTel from pre_user where pId='$uId' limit 1"));
-	}else{
-		$result=mysql_fetch_array(mysql_query("select userTel from user where uId='$uId' limit 1"));
-		$status == "";
-		}
-?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -20,10 +5,10 @@
 <title>个人中心</title>
 <link href="css/personal_center.css" type="text/css" rel="stylesheet">
 <link href="css/main.css" type="text/css" rel="stylesheet">
-<script src="js/main.js"></script>
 <script src="js/jquery-1.11.1.js"></script>
+<script src="js/main.js"></script>
 <script src="js/personal_center.js" type="text/javascript"></script>
-<script type="text/javascript" src="js/pic_preview.js"></script>
+
 </head>
 
 <body>
@@ -67,13 +52,41 @@
 	}else if($action == "info"){
 ?>
 <!--个人资料页面-->   
+<script type="text/javascript" src="js/pic_preview.js"></script>
 <div class="main" id="main_2">
-
+	<div class="page_title">
+        <li class="title_left">个人资料</li>
+    </div><input name="aaa" id="bbb" type="text"/>
+    <div class="contact">
+		<form class="persenal_info" action="#" method="post">
+          <ul>
+            <li>
+                <label for="society_name"><span>*</span>社团名称：</label>
+                <input name="society_name" type="text"  placeholder="6~20个字符"/>
+            </li>
+            <li>
+                <label for="school"><span>*</span>所在学校：</label>
+                <input name="school" type="text" value="<?php echo $_SESSION['sschool']?>" readonly="readonly"/>
+            </li>
+            <li>
+                
+            </li>
+            <li>
+                
+            </li>
+            <li>
+                
+            </li>
+            <li>
+               
+            </li>
+          </ul>   
+        </form>
+    </div>
 </div>
 
 <?php
-	}else if($action == "account"){
-		
+	}else if($action == "account"){		
 ?>
 <!--账号信息页面-->   
 <div class="main" id="main_3">
@@ -84,7 +97,7 @@
     	<form class="tel_form" action="../background/background_person/modify_userinfo.php?status=$status" method="post">
           <li>
             <label>当前账号：</label>
-            <input name="userTel" type="text" value="<?php echo $result['userTel']?>" readonly="readonly" onfocus="outline_new(this)" onblur="outline_old(this)"  onkeydown="disappear('otel');" />
+            <input name="userTel" type="text" value="<?php echo $result['userTel']?>" readonly="readonly" onkeydown="disappear('otel');" />
           </li>
           <li><span id="otel" style="display:none"></span></li>
           <li><a class="gray" href="javascript:change_tel()">绑定其他手机号</a></li>
@@ -92,7 +105,7 @@
           <li class="ver_code" style="display:none;">
             <p>我们给该号码发送了一条短信验证码</p>
             <p>若<strong class="time">60</strong>秒后您还未收到，请点击<a id="resend" class="gray">重新发送</a></p>
-            <p><input type="text" id="test" placeholder="在这里输入验证码" onfocus="outline_new(this)" onblur="outline_old(this)"/></p>
+            <p><input type="text" id="test" placeholder="在这里输入验证码"/></p>
           </li>
           <input type="submit" class="button" value="确认修改" style="display:none;"/>
         </form>
@@ -101,17 +114,17 @@
         <ul>
           <li>
             <label>当前密码：</label>
-            <input name="password_old" type="password" onfocus="outline_new(this)" onblur="outline_old(this)" onkeydown="disappear('span_1');" required="required"/>
+            <input name="password_old" type="password" onkeydown="disappear('span_1');" required="required"/>
           </li>
           <li><span id="span_1" style="display:none"></span></li>
           <li>
             <label>设置密码：</label>
-            <input name="password_1" type="password"  placeholder="密码不得少于六位" onfocus="outline_new(this)"  onblur="outline_old(this);checking_2(this)"  onkeydown="disappear('span_2');" required="required"/>
+            <input name="password_1" type="password"  placeholder="密码不得少于六位" onblur="checking_2(this)"  onkeydown="disappear('span_2');" required="required"/>
           </li>
           <li><span id="span_2" style="display:none">密码长度至少6位！</span></li>
           <li>
             <label>确认密码：</label>
-            <input name="password_2" type="password" onfocus="outline_new(this)" onblur="outline_old(this);checking_3(this)" onkeydown="disappear('span_3');"/>
+            <input name="password_2" type="password" onblur="checking_3(this)" onkeydown="disappear('span_3');"/>
           </li>
           <li><span id="span_3" style="display:none">两次密码不一致!</span></li>
           <input type="submit" class="button" value="修改密码" />

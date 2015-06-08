@@ -147,7 +147,7 @@ window.onload = function (){
 		$(".ui-icon-triangleb").css({'background-position':'14px -21px'});
 		i=0;
 		//更改school_list数据
-		$("#school_list ul").load("school/school.php",{"pro_id":pro_id},function(){
+		$("#school_list ul").load("res_package/school_list.php",{"pro_id":pro_id},function(){
 			//计算所需要的li行数
     		n=Math.ceil($(".school_list ul li").length/ 3); 		
         	//确定滚动条高度

@@ -10,8 +10,8 @@ error_reporting(E_ALL & ~E_NOTICE);
 </head>
 <link href="css/fresh_open.css" type="text/css" rel="stylesheet">
 <link href="css/main.css" type="text/css" rel="stylesheet">
-<script src="js/main.js"></script>
 <script src="js/jquery-1.11.1.js"></script>
+<script src="js/main.js"></script>
 <script src="js/fresh_open.js" type="text/javascript"></script>
 <body>
 
@@ -58,16 +58,16 @@ error_reporting(E_ALL & ~E_NOTICE);
           <ul>
             <li>
               <label for="apply_time"><span>*</span>报名时间：</label>
-              <input type="date" name="begin_date"  onfocus="outline_new(this)" onblur="outline_old(this)"/><input type="time" name="begin_time"  onfocus="outline_new(this)" onblur="outline_old(this)"/>-
-              <input type="date" name="end_date"  onfocus="outline_new(this)" onblur="outline_old(this)"/><input type="time" name="end_time"  onfocus="outline_new(this)" onblur="outline_old(this)"/>
+              <input type="date" name="begin_date"/><input type="time" name="begin_time"/>-
+              <input type="date" name="end_date"/><input type="time" name="end_time"/>
             </li>
             <li>
               <label for="notice"><span>*</span>纳新公告：</label>
-              <textarea name="notice" placeholder="用一句话为你的社团吸引人气（10~40个字）" required  onfocus="outline_new(this)" onblur="outline_old(this)"></textarea>
+              <textarea name="notice" placeholder="用一句话为你的社团吸引人气（10~40个字）" required></textarea>
             </li>
             <li>
               <label for="detail">&nbsp;详细说明：</label>
-              <textarea name="detail" placeholder="输入纳新的详细说明，介绍社团详情或纳新规则等（0~500个字）" onfocus="outline_new(this)" onblur="outline_old(this)"></textarea>
+              <textarea name="detail" placeholder="输入纳新的详细说明，介绍社团详情或纳新规则等（0~500个字）"></textarea>
             </li>
             <li><div style="width:304px;margin:auto;"><div class="button_2" onclick="javascript:page_to('0','1');">上一步</div><div class="button_2" onclick="javascript:page_to('2','1');">下一步</div></div></li>
           </ul>
@@ -87,11 +87,11 @@ error_reporting(E_ALL & ~E_NOTICE);
             </li>
             <li>
                 <label for="ques_1">设置问题一：</label><input type="checkbox" id="set_1" checked onclick="javascript:judge_check('1');"/>
-                <input type="text" name="que_1" placeholder="在这里输入问题（4~25字）" id="ques_1" onfocus="outline_new(this)" onblur="outline_old(this)"/><br/>
+                <input type="text" name="que_1" placeholder="在这里输入问题（4~25字）" id="ques_1"/><br/>
                 <label for="ques_2">设置问题二：</label><input type="checkbox" id="set_2"  onclick="javascript:judge_check('2');"/>
-                <input type="text" name="que_2"  placeholder="在这里输入问题（4~25字）" id="ques_2" style="display:none;" onfocus="outline_new(this)" onblur="outline_old(this)"/><br/>
+                <input type="text" name="que_2"  placeholder="在这里输入问题（4~25字）" id="ques_2" style="display:none;"/><br/>
                 <label for="ques_3">设置问题三：</label><input type="checkbox" id="set_3"  onclick="javascript:judge_check('3');"/>
-                <input type="text" name="que_3"  placeholder="在这里输入问题（4~25字）" id="ques_3" style="display:none;" onfocus="outline_new(this)" onblur="outline_old(this)"/>
+                <input type="text" name="que_3"  placeholder="在这里输入问题（4~25字）" id="ques_3" style="display:none;"/>
             </li>
             <li><div style="width:304px;margin:auto;"><div class="button_3" onclick="javascript:page_to('1','2');">上一步</div><div class="button_3" onclick="javascript:submit_btn();">开启纳新</div></div></li>
           </ul>

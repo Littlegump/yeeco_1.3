@@ -165,8 +165,7 @@ function cardIn(x){
 			if(state == "none"){
 			    $(det).fadeIn("fast");
 			}   
-	},700)
-	
+	},700)	
 }
 
 function cardOut(x){
