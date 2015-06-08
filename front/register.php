@@ -59,11 +59,8 @@ error_reporting(E_ALL & ~E_NOTICE);
           <span id="span_4" style="display:none">请输入您的真实姓名！</span>
           <li>
             <div class="icon"></div>
-<<<<<<< HEAD
-            <input type="text" id="school" name="school" class="text-input" onclick="disappear('span_5');chooseSchool();"  placeholder="您所在的学校"/>
-=======
             <input type="text" id="school" name="school" class="text-input" onclick="chooseSchool();disappear('span_5');" readonly="readonly" placeholder="您所在的学校"/>
->>>>>>> origin/master
+
           </li>
           <span id="span_5" style="display:none">请选择您所在的学校！</span>
         </ul>
@@ -106,8 +103,7 @@ error_reporting(E_ALL & ~E_NOTICE);
 </div>
 </form>
 
-<<<<<<< HEAD
-=======
+
 <!--弹出选择学校对话框-->
 <div class="school" id="school_box" style="display:none;">
     <div class="shead">
@@ -165,7 +161,6 @@ error_reporting(E_ALL & ~E_NOTICE);
         <div class="ui-scrollbar-bar_2" style="top:0;"></div>
     </div>
 </div>
->>>>>>> origin/master
 
 </body>
 </html>
