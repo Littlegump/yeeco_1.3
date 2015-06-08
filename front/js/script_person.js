@@ -9,6 +9,27 @@ function register_text_out(x){
      x.parentNode.style.border="1px solid #ccc";
 }
 
+//弹出全屏遮罩层
+function coverall(){
+	$("body").append("<div class='back'></div>");
+}
+//取消全屏遮罩层
+function nocover(){
+	$(".back").remove("");
+}
+
+// JavaScript Document
+//弹出窗口：要弹出窗口的id
+function newbox(wid){
+	$('#'+wid).fadeIn("fast");	
+}
+
+//窗口消失：要消失窗口的id
+function movebox(wid){
+	$('#'+wid).fadeOut("fast");
+}
+
+
 //提示框消失
 function disappear(x){
 	document.getElementById(x).style.display="none";

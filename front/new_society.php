@@ -21,8 +21,8 @@
 <title>我的社团</title>
 <link href="css/new_society.css" type="text/css" rel="stylesheet">
 <link href="css/main.css" type="text/css" rel="stylesheet">
-<script src="js/main.js"></script>
 <script src="js/jquery-1.11.1.js"></script>
+<script src="js/main.js"></script>
 <script type="text/javascript" src="js/jquery.form.js"></script>
 <script src="js/new_society.js" type="text/javascript"></script>
 </head>
@@ -66,9 +66,11 @@
 <!--第一页-->
 <div class="page_1" id="0" style="display:none">
   <form class="framwork" id="form_1" action="../background/background_society/dep_structure/dep_struct_form.php" method="post">
-  <div class="leader_team"><label>架构名称：</label><input type="text" name="leader_team" value="<?php echo $sName?>2015届领导班子" /></div>
+  <div class="leader_team">
+      <label>架构名称：</label><input type="text" name="leader_team" value="<?php echo $sName?>2015届领导班子"/>
+  </div>
   <div class="left"> 
-      <input type="text" name="position" placeholder="职位" value="社长" onfocus="outline_new(this)" onblur="outline_old(this)"/>
+      <input type="text" name="position" placeholder="职位" value="社长"/>
       <input type="text" name="me" value="我" disabled="disabled"/>
       <div class="chestnut"><img src="../image/web_image/举例说明.png"></div>
   </div>
@@ -87,16 +89,16 @@
     </div>
     <div id="all_dep">
       <div id="dep_1" class="new_dep"> 
-        <input type="text" name="dep_name[]" placeholder="部门名称" onfocus="outline_new(this)" onblur="outline_old(this)" required="required"/>
-        <input type="text" name="position_1[]" placeholder="职位" onfocus="outline_new(this)" onblur="outline_old(this)" required="required"/>
-        <input type="text" name="position_2[]" placeholder="职位" onfocus="outline_new(this)" onblur="outline_old(this)"/>
-        <input type="text" name="position_3[]" placeholder="职位" onfocus="outline_new(this)" onblur="outline_old(this)"/>
-        <input type="text" name="manager_1[]" placeholder="姓名" onfocus="outline_new(this)" onblur="outline_old(this)" required="required"/>
-        <input type="text" name="manager_2[]" placeholder="姓名" onfocus="outline_new(this)" onblur="outline_old(this)"/>
-        <input type="text" name="manager_3[]" placeholder="姓名" onfocus="outline_new(this)" onblur="outline_old(this)"/>
-        <input type="text" name="tel_1[]" placeholder="联系方式" onfocus="outline_new(this)" onblur="outline_old(this)" required="required"/>
-        <input type="text" name="tel_2[]" placeholder="联系方式" onfocus="outline_new(this)" onblur="outline_old(this)"/>
-        <input type="text" name="tel_3[]" placeholder="联系方式" onfocus="outline_new(this)" onblur="outline_old(this)"/>
+        <input type="text" name="dep_name[]" placeholder="部门名称" required="required"/>
+        <input type="text" name="position_1[]" placeholder="职位" required="required"/>
+        <input type="text" name="position_2[]" placeholder="职位"/>
+        <input type="text" name="position_3[]" placeholder="职位"/>
+        <input type="text" name="manager_1[]" placeholder="姓名" required="required"/>
+        <input type="text" name="manager_2[]" placeholder="姓名"/>
+        <input type="text" name="manager_3[]" placeholder="姓名"/>
+        <input type="text" name="tel_1[]" placeholder="联系方式" required="required"/>
+        <input type="text" name="tel_2[]" placeholder="联系方式"/>
+        <input type="text" name="tel_3[]" placeholder="联系方式"/>
       </div>
     </div>    
     <div class="add_new"> 
@@ -130,8 +132,8 @@
         <strong>逐一添加：</strong>
         <ul id="member_all">
           <li id="mem_1">
-            <input type="text" name="name[]" onfocus="outline_new(this)" onblur="outline_old(this)" placeholder="姓名"/>
-            <input type="text" name="telnumber[]" onfocus="outline_new(this)" onblur="outline_old(this)" placeholder="联系方式"/>
+            <input type="text" name="name[]" placeholder="姓名"/>
+            <input type="text" name="telnumber[]" placeholder="联系方式"/>
             <a href="javascript:deleteMem('mem_1');">-</a><div style="clear:both;"></div>
           </li>         
         </ul>

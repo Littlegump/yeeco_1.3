@@ -2,13 +2,13 @@
     if(@$_COOKIE["passwordno"]){
 	
 ?>
-		<form id="LoginForm" action="background/background_person/login.php?action=auto" method="post"><!--指向后台的登录模块.php-->
-            <input type="hidden" name="usertel" value="<?php echo $_COOKIE["usertelno"]?>"/>
-            <input type="hidden"name="password" value="<?php echo $_COOKIE["passwordno"]?>"/>
-        </form>
-<script type="text/javascript">
-    document.getElementById('LoginForm').submit();
-</script>
+	<form id="LoginForm" action="background/background_person/login.php?action=auto" method="post"><!--指向后台的登录模块.php-->
+        <input type="hidden" name="usertel" value="<?php echo $_COOKIE["usertelno"]?>"/>
+        <input type="hidden"name="password" value="<?php echo $_COOKIE["passwordno"]?>"/>
+    </form>
+	<script type="text/javascript">
+    	document.getElementById('LoginForm').submit();
+	</script>
 <?php	      
 	}
 ?>
@@ -20,7 +20,7 @@
 <link href="front/css/login.css" type="text/css" rel="stylesheet">
 <link href="front/css/main.css" type="text/css" rel="stylesheet">
 <script src="front/js/jquery-1.11.1.js"></script>
-<script src="front/js/main.js"></script>
+<script src="front/js/index.js"></script>
 <script type="text/javascript"> 
 
 //  $(function(){ 

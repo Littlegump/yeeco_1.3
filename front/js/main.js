@@ -1,15 +1,21 @@
-//表单功能****************************************************************
+$(document).ready(function(){
 
-//获取焦点改变文本框（当前对象）边框颜色：操作的文本框
-function outline_new(x){
-		x.style.border="1px solid #00ACFF";
-}
-
-//失去焦点改变文本框（当前对像）边框颜色：操作的文本框
-function outline_old(x){
-		x.style.border="1px solid #ccc";
-}
-
+	//表单功能**************************************************************
+	//获取焦点改变文本框（当前对象）边框颜色：操作的文本框
+    $(":text").focus(function(){
+		$(this).css("border","1px solid #00ACFF");
+	}) 
+	$(":text").blur(function(){
+		$("input").css("border","1px solid #ccc");
+	})
+	$("textarea").focus(function(){
+		$(this).css("border","1px solid #00ACFF");
+	}) 
+	$("textarea").blur(function(){
+		$("input").css("border","1px solid #ccc");
+	})
+	
+});
 
 
 //复选框被选中时，该选框所对应的label颜色变黑；反之则恢复灰色
@@ -45,5 +51,8 @@ function newbox(wid){
 function movebox(wid){
 	$('#'+wid).fadeOut("fast");
 }
+
+
+
 
 
