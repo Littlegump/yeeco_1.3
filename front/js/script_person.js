@@ -44,7 +44,6 @@ function sendcode(){
 }
 //切换至验证页面并发送验证码
 function toTest(){
-	
 	//点击注册时触发表单是否为空验证
     var usertel=$("#usertel");
 	var pass_1=$("#password1");
@@ -141,4 +140,23 @@ function checking_3(x){
 	}
 }
 
+//选择学校
+function chooseSchool(){
+	coverall();
+	newbox('school_box');
+}
 
+//关闭选择
+function closeChoose(){
+	nocover();
+	movebox('school_box');	
+}
+
+$(document).ready(function(){
+	//将所选择的学校名称填入表单   	
+	$("#school_list ul li a").click(function (event){
+	    var slected_school=$(this).text();
+		$("input[name='school']").val(slected_school);
+		closeChoose();
+    });
+});
