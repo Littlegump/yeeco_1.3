@@ -3,47 +3,57 @@ session_start();
 error_reporting(E_ALL & ~E_NOTICE);
 require_once('../conf/connect.php');
 $uId=$_SESSION['userId'];
-$status = $_GET['status'];
+$op = $_GET['op'];
+
+
 //获取表单元素值
-$password_old=$_POST['password_old'];
 $password_1=$_POST['password_1'];
 $userTel=$_POST['userTel'];
-	if($userTel){
-		if($status == 'unactive'){
-			$f=mysql_query("update pre_user set userTel='$userTel' where pId='$uId'");
-		}else{
-			$f=mysql_query("update user set userTel='$userTel' where uId='$uId'");
-		}		
-	}
-	if($status == 'unactive'){
-		if($password_old == '123456'){
-			$res=mysql_fetch_array(mysql_query("select * from pre_user where pId='$uId' limit 1"));
-			$userName=$res['userName'];
-			$userTel=$res['userTel'];
-			$userSchool=$res['userSchool'];
-			$regTime=time();
-			$f=mysql_query("insert into user(userTel,password,userSchool,userName,regTime) values('$userTel','$password_1','$userSchool','$userName','$regTime')");
-			$res1=mysql_fetch_array(mysql_query("select * from preuser_society_relation where pid='$uId' limit 1"));
-			$pid=$res1['$pid'];
-			$sid=$res1['$sid'];
-			$isDepManager=$res1['$isDepManager'];
-			if($isDepManager == '0'){
-		$f1=mysql_query("insert into user_society_relation(userId,societyId,isManage,depBelong) values('$pid','$sid','0','0')");			
-			}else{
-		$f1=mysql_query("insert into user_society_relation(userId,societyId,isManage,depBelong) values('$pid','$sid','1','$isDepManager')");		
-				}
-			$f2=mysql_query("delete from pre_user where pId='$uId'");
-			$f3=mysql_query("delete from preuser_society_relation where pid='$uId'");
-			if($f && $f1 && $f2 && $f3){
-				echo "<script>alert('修改密码成功！');</script>";
-				}
-		}else{
-			echo "<script>alert('旧密码错误！');</script>";
-			}
+if($_GET['action'] == 'isright'){
+	$password_old=$_POST['password_old'];
+	$result=mysql_fetch_array(mysql_query("select password from user where uId='$uId' limit 1"));
+	if($password_old == $result['password']){
+		exit;
 	}else{
+		echo "密码输入错误！";	
+		exit;
+	}
+}
+
+
+	//修改电话号码
+if($op == 'tel'){
+	if($userTel){
+			$f=mysql_query("update user set userTel='$userTel' where uId='$uId'");
+			if($f){
+				logout();	
+				echo "<script>alert('修改成功，请重新登陆！');window.location.href='../../index.php';</script>";
+			}else{
+				echo "<script>alert('修改失败，请重新修改！');window.location.href='../../front/personal_center.php?action=account';</script>";
+			}
+		}
+	exit;		
+}
+if($op == 'pwd'){
+	//修改密码
 		$f=mysql_query("update user set password='$password_1' where uId='$uId'");
+		if($f){
+			logout();
+			echo "<script>alert('修改成功，请重新登陆！');window.location.href='../../index.php';</script>";
+		}else{
+			echo "<script>alert('修改失败，请重新修改！');window.location.href='../../front/personal_center.php?action=account';</script>";
 		}
-	if($f){
-			echo "<script>alert('修改成功！');</script>";
-		}
+	exit;
+}
+
+function logout(){
+    unset($_SESSION['userName']); 
+	unset($_SESSION['userId']);
+    if(!empty($_COOKIE['usertelno']) || !empty($_COOKIE['passwordno'])){  
+    setcookie("usertelno", null, time()-3600*24*365,"/yeeco_1.0/");  
+    setcookie("passwordno", null, time()-3600*24*365,"/yeeco_1.0/");  
+	}
+}
+
+
 ?>

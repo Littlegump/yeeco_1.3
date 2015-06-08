@@ -82,9 +82,9 @@ function error(x){
 //验证密码是否正确
 function password_test(){
 	var usertel=$("[name='userTel']").val();
-	var password=$("[name='password_old']").val();
+	var password_old=$("[name='password_old']").val();
 	//***************在这里执行与后台交互的查询操作,提交“当前密码”，通过session保存的id与其进行匹配
-	$("#span_1").load("####",{"opassword":password},function(){
+	$("#span_1").load("../background/background_person/modify_userinfo.php?action=isright",{"password_old":password_old},function(){
 		bbb = $("#span_1").html();
 		    if(bbb){
 			        $("#span_1").css("display","block");

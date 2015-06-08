@@ -17,13 +17,11 @@ $remember = $_POST['remember'];
 //检测用户名是否正确
 $check_user = mysql_query("select * from user where userTel='$usertel' limit 1");
 $result_user = mysql_fetch_array($check_user);
-$check_pre_user = mysql_query("select * from pre_user where userTel='$usertel' limit 1");
-$result_pre_user = mysql_fetch_array($check_pre_user);
+
 
 //验证密码或加密后的密码是否正确，进行登录判断
 if($result_user){
     if($_GET['action'] == 'auto'){
-		
 		if($result_user['passwordno'] == $password){
 		    login();
 		}else{
@@ -36,25 +34,31 @@ if($result_user){
 		}else{
 	        error();
 		}
-	}
-	}else if($result_pre_user){
+	} 
+}else{
+		//user没有的话遍历pre_user
+	$check_pre_user = mysql_query("select * from pre_user where userTel='$usertel' limit 1");
+	$result_pre_user = mysql_fetch_array($check_pre_user);
+	if($result_pre_user){
 		if($password=='123456'){
 			//执行登陆操作，修改密码，进行用户激活
 			active_login();
-			}else{
-				error();
-				}
-	}else{
-	 echo "<script>alert('登录失败，该用户不存在！');</script>";
-	 logout();
+		}else{
+			error();
+		}
+	 }else{
+	 	echo "<script>alert('登录失败，该用户不存在！');</script>";
+	 	logout();
+	}
 }
 
 //执行登陆操作，修改密码，进行用户激活
 function active_login(){
 	global $result_pre_user;
-    $_SESSION['userId'] = $result_pre_user['pId'];
+    global $usertel;
+	//$_SESSION['userName'] = $result_pre_user['userName'];
 	//跳转到个人中心
-	echo "<script>window.location.href='../../front/personal_center.php?action=account&status=unactive';</script>";
+	echo "<script>window.location.href='../../front/change_password.php?userTel=$usertel';</script>";
 	}
 
 //执行登录操作

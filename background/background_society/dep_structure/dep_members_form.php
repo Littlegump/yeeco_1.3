@@ -27,5 +27,4 @@ for($i=0;$i<count($username);$i++){
 if(!($file || $username[0])){
 		echo "<script>alert('请添加社团成员！');</script>";
 	}
-print_r($username);
 ?>
