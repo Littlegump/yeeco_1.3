@@ -19,15 +19,6 @@
 <title>yeeco-home</title>
 <link href="front/css/login.css" type="text/css" rel="stylesheet">
 <link href="front/css/main.css" type="text/css" rel="stylesheet">
-<script src="front/js/jquery-1.11.1.js"></script>
-<script src="front/js/index.js"></script>
-<script type="text/javascript"> 
-
-//  $(function(){ 
-//      $("#first_page").height($(window).height()) 
-//  }); 
-</script>
-
 </head> 
 <body> 
 <div class="top_back">
@@ -101,6 +92,7 @@
 	  </div>
   </div>
 </div>
-
+<script src="front/js/jquery-1.11.1.js"></script>
+<script src="front/js/index.js"></script>
 </body>
 </html>

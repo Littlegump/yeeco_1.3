@@ -6,28 +6,29 @@ $(document).ready(function(){
 		$(this).css("border","1px solid #00ACFF");
 	}) 
 	$(":text").blur(function(){
-		$("input").css("border","1px solid #ccc");
+		$(this).css("border","1px solid #ccc");
 	})
 	$("textarea").focus(function(){
 		$(this).css("border","1px solid #00ACFF");
 	}) 
 	$("textarea").blur(function(){
-		$("input").css("border","1px solid #ccc");
+		$(this).css("border","1px solid #ccc");
 	})
-	
-});
-
-
-//复选框被选中时，该选框所对应的label颜色变黑；反之则恢复灰色
-function judge_check(x){
-	var inputId = x.id;
+	$(":radio").click(function(){
+	var inputId = this.id;
 	var label = $("label[for='"+inputId+"']");
     if(x.checked){
         label.addClass("label_selected");
     }else{
 		label.removeClass("label_selected");
     }
-}
+})
+
+});
+
+
+//复选框被选中时，该选框所对应的label颜色变黑；反之则恢复灰色
+
 
 
 //***************************************************************************
