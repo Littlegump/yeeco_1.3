@@ -14,7 +14,7 @@ function judge_day(){
 //加载该省份的所有城市
 function load_city(){
 	var pro = $("#native_por").val();
-	$("#native_city").load("city_list.php",{"pro":pro});
+	$("#native_city").load("res_package/city_list.php",{"pro":pro});
 }
 
 

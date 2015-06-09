@@ -13,9 +13,6 @@
 <title>个人中心</title>
 <link href="css/personal_center.css" type="text/css" rel="stylesheet">
 <link href="css/main.css" type="text/css" rel="stylesheet">
-<script src="js/jquery-1.11.1.js"></script>
-<script src="js/main.js"></script>
-<script src="js/personal_center.js" type="text/javascript"></script>
 
 </head>
 
@@ -68,14 +65,16 @@
     <div class="contact">
 		<form class="persenal_info" action="#" method="post">
           <ul>
-            <li>
+            <li class="refer_a">
                 <label for="name">姓名：</label>
                 <input name="name" type="text"/>
+                <div class="preview_face"><img src="../image/web_image/主题图片.png"></div>
+                <input type="file" class="face_pic" name="face_pic"/>
             </li>
             <li>
                 <label for="sex">性别：</label>
-                <input  type="radio" name="sex" value="男" id="boy" checked="checked"><label for="boy">男</label>
-                <input  type="radio" name="sex" value="女" id="girl"><label for="girl">女</label>
+                <span><input  type="radio" name="sex" value="男" id="boy" checked="checked"><label for="boy">男</label>
+                <input  type="radio" name="sex" value="女" id="girl"><label for="girl" class="gray">女</label></span>
             </li>
             <li>
                 <label for="birthday">生日：</label>
@@ -189,54 +188,57 @@
                     </select>
 				</span>
             </li>
-            <li>
+            <li class="refer_b">
                 <label for="native_place">籍贯：</label>
                 <span id="native_place">
 					<select class="native_por" id="native_por" name="native_por">
-    <option selected="selected" value="">省份</option>
-    <option value="北京" id="1">北京</option>
-    <option value="上海" id="2">上海</option>
-    <option value="天津" id="3">天津</option>
-    <option value="重庆" id="4">重庆</option>
-    <option value="黑龙江" id="5">黑龙江</option>
-    <option value="吉林" id="6">吉林</option>
-    <option value="辽宁" id="7">辽宁</option>
-    <option value="安徽" id="8">安徽</option>
-    <option value="江苏" id="9">江苏</option>
-    <option value="浙江" id="10">浙江</option>
-    <option value="陕西" id="11">陕西</option>
-    <option value="湖北" id="12">湖北</option>
-    <option value="广东" id="13">广东</option>
-    <option value="湖南" id="14">湖南</option>
-    <option value="甘肃" id="15">甘肃</option>
-    <option value="四川" id="16">四川</option>
-    <option value="山东" id="17">山东</option>
-    <option value="福建" id="18">福建</option>
-    <option value="河南" id="19">河南</option>   
-    <option value="云南" id="20">云南</option>
-    <option value="河北" id="21">河北</option>
-    <option value="江西" id="22">江西</option>
-    <option value="山西" id="23">山西</option>
-    <option value="贵州" id="24">贵州</option>
-    <option value="广西" id="25">广西</option>
-    <option value="内蒙古" id="26">内蒙古</option>
-    <option value="宁夏" id="27">宁夏</option>
-    <option value="青海" id="28">青海</option>
-    <option value="新疆" id="29">新疆</option>
-    <option value="海南" id="30">海南</option>
-    <option value="西藏" id="31">西藏</option>
-    <option value="香港" id="32">香港</option>
-    <option value="澳门" id="33">澳门</option>
-    <option value="台湾" id="34">台湾</option>
-</select>
+                        <option selected="selected" value="">省份</option>
+                        <option value="北京" id="1">北京</option>
+                        <option value="上海" id="2">上海</option>
+                        <option value="天津" id="3">天津</option>
+                        <option value="重庆" id="4">重庆</option>
+                        <option value="黑龙江" id="5">黑龙江</option>
+                        <option value="吉林" id="6">吉林</option>
+                        <option value="辽宁" id="7">辽宁</option>
+                        <option value="安徽" id="8">安徽</option>
+                        <option value="江苏" id="9">江苏</option>
+                        <option value="浙江" id="10">浙江</option>
+                        <option value="陕西" id="11">陕西</option>
+                        <option value="湖北" id="12">湖北</option>
+                        <option value="广东" id="13">广东</option>
+                        <option value="湖南" id="14">湖南</option>
+                        <option value="甘肃" id="15">甘肃</option>
+                        <option value="四川" id="16">四川</option>
+                        <option value="山东" id="17">山东</option>
+                        <option value="福建" id="18">福建</option>
+                        <option value="河南" id="19">河南</option>   
+                        <option value="云南" id="20">云南</option>
+                        <option value="河北" id="21">河北</option>
+                        <option value="江西" id="22">江西</option>
+                        <option value="山西" id="23">山西</option>
+                        <option value="贵州" id="24">贵州</option>
+                        <option value="广西" id="25">广西</option>
+                        <option value="内蒙古" id="26">内蒙古</option>
+                        <option value="宁夏" id="27">宁夏</option>
+                        <option value="青海" id="28">青海</option>
+                        <option value="新疆" id="29">新疆</option>
+                        <option value="海南" id="30">海南</option>
+                        <option value="西藏" id="31">西藏</option>
+                        <option value="香港" id="32">香港</option>
+                        <option value="澳门" id="33">澳门</option>
+                        <option value="台湾" id="34">台湾</option>
+                    </select>
 					<select class="native_city" id="native_city" name="native_city">
 	<option id="city" selected="selected" value="">城市</option>
 </select>
 				</span>
+                <div class="preview_real"><img src="../image/web_image/主题图片.png"><span>本人照片&nbsp;<a href="">移除</a></span></div>
+                <input type="file" class="real_pic" name="real_pic"/>
+                
             </li>
             <li>
                 <label for="school">所在学校：</label>
-                <input name="school" type="text" value="<?php echo $_SESSION['sschool']?>" readonly="readonly"/>
+                <input name="school" type="text" value="<?php echo $shcool?>" readonly="readonly"/>
             </li>
             <li>
                 <label for="major">专业班级：</label>
@@ -244,7 +246,7 @@
             </li>
             <li>
                 <label for="tel_number">联系电话：</label>
-                <input name="tel_number" type="text"/>
+                <input name="tel_number" type="text" value="88888888888" readonly="readonly"/>
             </li>
             <li>
                 <label for="email">邮箱：</label>
@@ -254,6 +256,7 @@
                 <label for="qq">QQ：</label>
                 <input name="qq" type="text"/>
             </li>
+              	<input type="submit" class="button" value="保存" />
           </ul>   
         </form>
     </div>
@@ -320,6 +323,10 @@
      <a href="../background/background_person/login.php?action=logout"><div id="icon_3"></div></a>
 </div>
 
+<script src="js/jquery-1.11.1.js"></script>
+<script src="js/main.js"></script>
+<script src="js/personal_center.js" type="text/javascript"></script>
+<script src="res_package/birth&native.js" type="text/javascript"></script>
 </body>
 </html>
 

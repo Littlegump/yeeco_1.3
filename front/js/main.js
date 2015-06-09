@@ -14,15 +14,32 @@ $(document).ready(function(){
 	$("textarea").blur(function(){
 		$(this).css("border","1px solid #ccc");
 	})
+	$("select").focus(function(){
+		$(this).css("border","1px solid #00ACFF");
+	}) 
+	$("select").blur(function(){
+		$(this).css("border","1px solid #ccc");
+	})
+	
+    //单选框被选中时，该选框所对应的label颜色变黑；反之则恢复灰色
 	$(":radio").click(function(){
-	var inputId = this.id;
-	var label = $("label[for='"+inputId+"']");
-    if(x.checked){
+		var inputId = this.id;
+		var label = $("label[for='"+inputId+"']");
+		$('#'+inputId+'~ label').siblings('label').removeClass("label_selected");
+		$('#'+inputId+'~ label').siblings('label').addClass("gray");
         label.addClass("label_selected");
-    }else{
-		label.removeClass("label_selected");
-    }
-})
+	})
+	
+	//复选框被选中时，该选框所对应的label颜色变黑；反之则恢复灰色
+	$(":checkbox").change(function(){
+		var inputId = this.id;
+		var label = $("label[for='"+inputId+"']");
+    	if(this.checked){
+       		label.addClass("label_selected");
+   		}else{
+			label.removeClass("label_selected");
+    	}
+	})
 
 });
 
