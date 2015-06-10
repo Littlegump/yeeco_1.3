@@ -94,10 +94,12 @@
 </div>
 
 <?php
-
+<<<<<<< HEAD
 	}else if($action == "account"){
 		$result=mysql_fetch_array(mysql_query("select userTel from user where uId='$uId' limit 1"));
-
+=======
+	}else if($action == "account"){		
+>>>>>>> 15dce80df714e73b55127fc76d0bcbe7c61ef5b0
 ?>
 <!--账号信息页面-->   
 <div class="main" id="main_3">
@@ -125,9 +127,11 @@
         <ul>
           <li>
             <label>当前密码：</label>
-
+<<<<<<< HEAD
             <input name="password_old" type="password" onfocus="outline_new(this)" onblur="password_test();outline_old(this)" onkeydown="disappear('span_1');" required="required"/>
-
+=======
+            <input name="password_old" type="password" onkeydown="disappear('span_1');" required="required"/>
+>>>>>>> 15dce80df714e73b55127fc76d0bcbe7c61ef5b0
           </li>
           <li><span id="span_1" style="display:none"></span></li>
           <li>
