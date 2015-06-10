@@ -26,7 +26,7 @@ window.onload = function (){
 
 	
     //拖拽事件，滚动条滚动
-    $('.ui-scrollbar-bar').mousedown(function (){
+    $('.ui-scrollbar-bar').mousedown(function(){
         var patch=event.clientY;
         $(document).mousemove(function (event){
 			$("*").addClass("temp_c");
@@ -164,6 +164,7 @@ window.onload = function (){
 			$.getScript("js/script_person.js");
 		});
 	});		
+	
 	
 }
 
