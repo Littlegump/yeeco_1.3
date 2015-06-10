@@ -57,6 +57,9 @@ function countDown(){
 		}else{
 			$("#resend").removeClass("gray");
 			$("#resend").attr("href","javascript:sendcode();"); 
+			$(".test_code input[type='button']").attr("onclick","checking_find()");
+			$(".test_code input[type='button']").removeClass("disabled");
+			$(".test_code input[type='button']").addClass("button");
 		}
     },1000)
 }
@@ -71,6 +74,7 @@ function disappear(x){
 function error(x){
 	var objid = $(x).attr("name");
 	switch(objid){
+	case 'usertel':$("#span_4").css("display","block");break;
 	case 'password_old':$("#span_1").css("display","block");break;
 	case 'password_1':$("#span_2").css("display","block");break;
 	case 'password_2':$("#span_3").css("display","block");break;
@@ -114,8 +118,42 @@ function checking_3(x){
 	}
 }
 
+//验证账户名是否是标准的手机号码
+function checking_find(){
+	var usertel=$("[name='usertel']").val();
+	var x=$("[name='usertel']");
+	var temp=usertel.substring(0,2);
+	if(usertel != ""){
+	if(usertel.length != 11){
+		error(x);
+	}else if(temp!="14" && temp!="13" && temp!="15" && temp!="18"){
+	    error(x);
+	}else{
+	    //用户名格式正确，判断该用户是否存在
+		//*************************************************************************
+		$("#otel").load("here*****is******url",{"ousertel":usertel},function(){
+			ddd = $("#otel").text();
+			if(ddd){
+		       $("#otel").css("display","block");
+			}else{
+				//用户存在，则发送验证码
+				send_findcode();
+			}
+		});
+	}		
+	}
+}
 
-
+//找回密码，发送验证码
+function send_findcode(){
+     //发送验证码
+	alert("yanzhengmayifasong");
+	$(".test_code input[type='button']").val("重发验证码");
+	$(".test_code input[type='button']").removeAttr("onclick");
+	$(".test_code input[type='button']").removeClass("button");
+	$(".test_code input[type='button']").addClass("disabled");
+	countDown();
+}
 
 
 
