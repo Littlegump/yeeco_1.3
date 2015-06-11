@@ -1,6 +1,5 @@
 <?php
 error_reporting(E_ALL & ~E_NOTICE);
-$str='88888888883';
 function code($str){
 		$asc=array(58,59,60,61,62,63,64,91,92,93,94,95,96);
 		$temp=rand(65,90);
@@ -67,7 +66,4 @@ function decode($str){
 		}
 	return $code;
 }
-echo $q=code($str);
-echo "++++++++";
-echo decode($q);
 ?>
