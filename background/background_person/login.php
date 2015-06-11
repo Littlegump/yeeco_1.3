@@ -59,7 +59,6 @@ function active_login(){
     global $usertel;
 	//对电话进行加密操作
 	$usertel=code($usertel);
-	//跳转到个人中心
 	echo "<script>window.location.href='../../front/change_password.php?account=$usertel';</script>";
 	}
 

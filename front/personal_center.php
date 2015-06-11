@@ -243,7 +243,7 @@
             <li>
                 <label for="major">专业班级：</label>
                 <input name="major" type="text"/>
-<<<<<<< HEAD
+
             </li>
             <li>
                 <label for="tel_number">联系电话：</label>
@@ -254,18 +254,6 @@
                 <input name="email" type="text"/>
             </li>
             <li>
-=======
-            </li>
-            <li>
-                <label for="tel_number">联系电话：</label>
-                <input name="tel_number" type="text" value="88888888888" readonly="readonly"/>
-            </li>
-            <li>
-                <label for="email">邮箱：</label>
-                <input name="email" type="text"/>
-            </li>
-            <li>
->>>>>>> origin/lsl_develop
                 <label for="qq">QQ：</label>
                 <input name="qq" type="text"/>
             </li>
@@ -276,16 +264,12 @@
 </div>
 
 <?php
-<<<<<<< HEAD
+
 
 
 	}else if($action == "account"){
 		$result=mysql_fetch_array(mysql_query("select userTel from user where uId='$uId' limit 1"));
 
-=======
-	}else if($action == "account"){
-		$result=mysql_fetch_array(mysql_query("select userTel from user where uId='$uId' limit 1"));
->>>>>>> origin/lsl_develop
 ?>
 <!--账号信息页面-->   
 <div class="main" id="main_3">
@@ -313,12 +297,8 @@
         <ul>
           <li>
             <label>当前密码：</label>
-<<<<<<< HEAD
             <input name="password_old" type="password" onfocus="outline_new(this)" onblur="password_test();outline_old(this)" onkeydown="disappear('span_1');" required="required"/>
 
-=======
-            <input name="password_old" type="password" onkeydown="disappear('span_1');" required="required"/>
->>>>>>> origin/lsl_develop
           </li>
           <li><span id="span_1" style="display:none"></span></li>
           <li>

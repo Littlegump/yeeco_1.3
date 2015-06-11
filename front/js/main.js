@@ -35,7 +35,6 @@ $(document).ready(function(){
 		$('#'+inputId+'~ label').siblings('label').addClass("gray");
         label.addClass("label_selected");
 	})
-
 	
 	//复选框被选中时，该选框所对应的label颜色变黑；反之则恢复灰色
 	$(":checkbox").change(function(){
@@ -48,8 +47,9 @@ $(document).ready(function(){
     	}
 	})
 
-
 });
+
+
 
 
 //***************************************************************************
@@ -73,8 +73,3 @@ function newbox(wid){
 function movebox(wid){
 	$('#'+wid).fadeOut("fast");
 }
-
-
-
-
-

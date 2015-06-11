@@ -132,7 +132,9 @@ function checking_find(){
 	}else{
 	    //用户名格式正确，判断该用户是否存在
 		//*************************************************************************
+
 		$("#otel").load("../background/background_person/isExistUser.php",{"ousertel":usertel},function(){
+
 			ddd = $("#otel").text();
 			if(ddd){
 		       $("#otel").css("display","block");
