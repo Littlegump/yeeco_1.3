@@ -56,10 +56,10 @@
         <ul>
           <li>
             <label>手机号码：</label>
-            <input name="usertel" type="text" placeholder="请输入手机号码" required="required" onkeydown="disappear('span_1');disappear('otel')"/>
+            <input name="usertel" type="text" placeholder="请输入手机号码" required="required" onkeydown="disappear('span_4');disappear('otel')"/>
             <input type="button" class="button" value="发送验证码" onclick="checking_find()"/>
           </li>
-          <li><span id="span_1" style="display:none">请输入合法的手机号码！</span></li>
+          <li><span id="span_4" style="display:none">请输入合法的手机号码！</span></li>
           <li><span id="otel" style="display:none"></span></li>
           <li>
             <label>验证码：</label>

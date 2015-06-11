@@ -74,7 +74,7 @@ function disappear(x){
 function error(x){
 	var objid = $(x).attr("name");
 	switch(objid){
-	case 'usertel':document.getElementById("span_1").style.display="block";break;
+	case 'usertel':$("#span_4").css("display","block");break;
 	case 'password_old':$("#span_1").css("display","block");break;
 	case 'password_1':$("#span_2").css("display","block");break;
 	case 'password_2':$("#span_3").css("display","block");break;
@@ -121,6 +121,7 @@ function checking_3(x){
 //验证账户名是否是标准的手机号码
 function checking_find(){
 	var usertel=$("[name='usertel']").val();
+	var x=$("[name='usertel']");
 	var temp=usertel.substring(0,2);
 	if(usertel != ""){
 	if(usertel.length != 11){

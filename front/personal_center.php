@@ -264,6 +264,7 @@
 
 <?php
 
+
 	}else if($action == "account"){
 		$result=mysql_fetch_array(mysql_query("select userTel from user where uId='$uId' limit 1"));
 
@@ -295,7 +296,6 @@
           <li>
             <label>当前密码：</label>
             <input name="password_old" type="password" onfocus="outline_new(this)" onblur="password_test();outline_old(this)" onkeydown="disappear('span_1');" required="required"/>
-
 
           </li>
           <li><span id="span_1" style="display:none"></span></li>

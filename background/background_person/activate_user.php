@@ -30,11 +30,9 @@
 			$f1=mysql_query("insert into user_society_relation(userId,societyId,isManage,depBelong) values('$newId','$sid','1','$isDepManager')");		
 		}
 		$f3=mysql_query("delete from preuser_society_relation where pid='$value'");	
-	}			
-			
+	}					
 	//删除pre_user和preuser_society_relation信息
-	$f2=mysql_query("delete from pre_user where userTel='$userTel'");
-	
+	$f2=mysql_query("delete from pre_user where userTel='$userTel'");	
 	if($f && $f1 && $f2 && $f3){
 		$_SESSION['userName'] = $userName;
     	$_SESSION['userId'] = $newId;
