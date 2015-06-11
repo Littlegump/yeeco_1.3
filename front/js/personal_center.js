@@ -12,6 +12,7 @@ function sendcode(){
 	
 	//检查手机号码格式以及是否被注册了
 	var usertel=$("[name='userTel']").val();
+	var x=$("[name='userTel']");
 	var temp=usertel.substring(0,2);
 	if(usertel != ""){
 	if(usertel.length != 11){
