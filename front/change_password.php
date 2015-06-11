@@ -1,7 +1,15 @@
 <?php
 	session_start();
 	error_reporting(E_ALL & ~E_NOTICE);
-	$account = $_GET['account'];
+	require_once('../background/conf/enc.php');
+	//接受从login.php获得的account值
+	if($_GET['account']){
+		$account = $_GET['account'];
+	}
+	//接受从本页面中获得的account值
+	if($_POST['usertel']){
+		$account=code($_POST['usertel']);
+	}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -52,7 +60,7 @@
 ?>
 <!--发送验证码，找回密码页面-->   
 <div class="page">
-        <form class="test_code" action="change_password.php?account" method="post">
+        <form class="test_code" action="change_password.php" method="post">
         <ul>
           <li>
             <label>手机号码：</label>

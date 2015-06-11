@@ -1,5 +1,6 @@
 <?php
 error_reporting(E_ALL & ~E_NOTICE);
+$str='88888888883';
 function code($str){
 		$asc=array(58,59,60,61,62,63,64,91,92,93,94,95,96);
 		$temp=rand(65,90);
@@ -24,7 +25,7 @@ function code($str){
 		}
 		if($k != "" && $k[strlen($k)-1]=='0'){
 			$k[strlen($k)-2]='@';
-			$k[strlen($k)-1]="";
+			$k=substr($k,0,strlen($k)-1);
 			}	
 		return $strs.$k;		
 }
@@ -36,8 +37,9 @@ function decode($str){
 		$flag=false;
 		$temp=ord(substr($str,0,1));
 		$strs=substr($str,1,11);
-		$k=substr($str,12);
+		$k=substr($str,12);//print_r($k);exit;
 		if($k != "" && $k[strlen($k)-1]=='@'){
+			
 			$flag1=true;
 		}else{
 			$flag1=false;		
@@ -65,4 +67,7 @@ function decode($str){
 		}
 	return $code;
 }
+echo $q=code($str);
+echo "++++++++";
+echo decode($q);
 ?>
