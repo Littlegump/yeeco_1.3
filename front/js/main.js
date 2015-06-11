@@ -8,6 +8,12 @@ $(document).ready(function(){
 	$(":text").blur(function(){
 		$(this).css("border","1px solid #ccc");
 	})
+	$(":password").focus(function(){
+		$(this).css("border","1px solid #00ACFF");
+	}) 
+	$(":password").blur(function(){
+		$(this).css("border","1px solid #ccc");
+	})
 	$("textarea").focus(function(){
 		$(this).css("border","1px solid #00ACFF");
 	}) 
@@ -43,8 +49,6 @@ $(document).ready(function(){
 
 });
 
-
-//复选框被选中时，该选框所对应的label颜色变黑；反之则恢复灰色
 
 
 

@@ -63,7 +63,7 @@
             <input type="password" id="password" name="password" class="text-input" onFocus="register_text_in(this)" onBlur="register_text_out(this)" placeholder="请输人密码" required oncopy="return false" onpaste="return false"/>
         </div>
         <label class="checkbox"><input type="checkbox" name="remember" checked="checked">自动登录</label>
-        <label class="forget"><a href="#">忘记密码</a></label>
+        <label class="forget"><a href="front/change_password.php">忘记密码</a></label>
         <input type="submit" name="submit" class="logon" value="登录">
     </form>
 

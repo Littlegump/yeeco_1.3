@@ -56,6 +56,7 @@ if($result_user){
 function active_login(){
 	global $result_pre_user;
     global $usertel;
+	//加密！！！！！！******************************************************
 	//$_SESSION['userName'] = $result_pre_user['userName'];
 	//跳转到个人中心
 	echo "<script>window.location.href='../../front/change_password.php?userTel=$usertel';</script>";
