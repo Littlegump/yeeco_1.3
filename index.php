@@ -19,15 +19,6 @@
 <title>yeeco-home</title>
 <link href="front/css/login.css" type="text/css" rel="stylesheet">
 <link href="front/css/main.css" type="text/css" rel="stylesheet">
-<script src="front/js/jquery-1.11.1.js"></script>
-<script src="front/js/index.js"></script>
-<script type="text/javascript"> 
-
-//  $(function(){ 
-//      $("#first_page").height($(window).height()) 
-//  }); 
-</script>
-
 </head> 
 <body> 
 <div class="top_back">
@@ -61,7 +52,6 @@
         <div class="logon_header">
           登&nbsp;录
         </div>
-
     <form name="LoginForm" action="background/background_person/login.php" method="post"><!--指向后台的登录模块.php-->
         <div class="lnusername">
             <div class="icon"></div>
@@ -72,10 +62,9 @@
             <input type="password" id="password" name="password" class="text-input" onFocus="register_text_in(this)" onBlur="register_text_out(this)" placeholder="请输人密码" required oncopy="return false" onpaste="return false"/>
         </div>
         <label class="checkbox"><input type="checkbox" name="remember" checked="checked">自动登录</label>
-        <label class="forget"><a href="#">忘记密码</a></label>
+        <label class="forget"><a href="front/change_password.php">忘记密码</a></label>
         <input type="submit" name="submit" class="logon" value="登录">
     </form>
-
     </div>
 
     
@@ -101,6 +90,7 @@
 	  </div>
   </div>
 </div>
-
+<script src="front/js/jquery-1.11.1.js"></script>
+<script src="front/js/index.js"></script>
 </body>
 </html>
