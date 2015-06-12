@@ -1,0 +1,10 @@
+$(".top_back").hover(function(){
+		    $(".top_back").removeClass("transparency");
+		},function(){
+			$(".top_back").addClass("transparency");
+	});
+$(".top").hover(function(){
+		    $(".top_back").removeClass("transparency");
+		},function(){
+			$(".top_back").addClass("transparency");
+	});

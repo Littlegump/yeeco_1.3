@@ -57,19 +57,18 @@
 	}else if($action == "info"){
 ?>
 <!--个人资料页面-->   
-<script type="text/javascript" src="js/pic_preview.js"></script>
 <div class="main" id="main_2">
 	<div class="page_title">
         <li class="title_left">个人资料</li>
     </div>
     <div class="contact">
-		<form class="persenal_info" action="#" method="post">
+		<form class="persenal_info" action="#" method="post" enctype="multipart/form-data">
           <ul>
             <li class="refer_a">
                 <label for="name">姓名：</label>
                 <input name="name" type="text"/>
-                <div class="preview_face"><img src="../image/web_image/主题图片.png"></div>
-                <input type="file" class="face_pic" name="face_pic"/>
+                <div class="preview_face"><img id="pre_img" src="../#"></div>
+                <input type="file" class="face_pic" name="face_pic" id="pic" onchange="setImagePreviews();"/>
             </li>
             <li>
                 <label for="sex">性别：</label>
@@ -185,6 +184,7 @@
                         <option value="28">28</option>
                         <option value="29">29</option>
                         <option value="30">30</option>
+                        <option value="31">31</option>
                     </select>
 				</span>
             </li>
@@ -231,10 +231,7 @@
 					<select class="native_city" id="native_city" name="native_city">
 	<option id="city" selected="selected" value="">城市</option>
 </select>
-				</span>
-                <div class="preview_real"><img src="../image/web_image/主题图片.png"><span>本人照片&nbsp;<a href="">移除</a></span></div>
-                <input type="file" class="real_pic" name="real_pic"/>
-                
+				</span>                
             </li>
             <li>
                 <label for="school">所在学校：</label>
@@ -261,7 +258,6 @@
         </form>
     </div>
 </div>
-
 <?php
 	}else if($action == "account"){
 		$result=mysql_fetch_array(mysql_query("select userTel from user where uId='$uId' limit 1"));
@@ -322,11 +318,11 @@
      <a href="personal_center.php"><div id="icon_2"></div></a>
      <a href="../background/background_person/login.php?action=logout"><div id="icon_3"></div></a>
 </div>
-
 <script src="js/jquery-1.11.1.js"></script>
 <script src="js/main.js"></script>
 <script src="js/personal_center.js" type="text/javascript"></script>
 <script src="res_package/birth&native.js" type="text/javascript"></script>
+<script src="js/pic_preview.js" type="text/javascript"></script>
 </body>
 </html>
 

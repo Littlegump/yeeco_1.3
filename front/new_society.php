@@ -21,10 +21,6 @@
 <title>我的社团</title>
 <link href="css/new_society.css" type="text/css" rel="stylesheet">
 <link href="css/main.css" type="text/css" rel="stylesheet">
-<script src="js/jquery-1.11.1.js"></script>
-<script src="js/main.js"></script>
-<script type="text/javascript" src="js/jquery.form.js"></script>
-<script src="js/new_society.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -175,6 +171,10 @@
      <a href="../background/background_person/login.php?action=logout"><div id="icon_3"></div></a>
 </div>
 </body>
+<script src="js/jquery-1.11.1.js"></script>
+<script src="js/main.js"></script>
+<script type="text/javascript" src="js/jquery.form.js"></script>
+<script src="js/new_society.js" type="text/javascript"></script>
 </html>
 
 

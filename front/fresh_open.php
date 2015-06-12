@@ -10,9 +10,6 @@ error_reporting(E_ALL & ~E_NOTICE);
 </head>
 <link href="css/fresh_open.css" type="text/css" rel="stylesheet">
 <link href="css/main.css" type="text/css" rel="stylesheet">
-<script src="js/jquery-1.11.1.js"></script>
-<script src="js/main.js"></script>
-<script src="js/fresh_open.js" type="text/javascript"></script>
 <body>
 
 <div class="body">   
@@ -115,5 +112,8 @@ error_reporting(E_ALL & ~E_NOTICE);
      
 </div>
 
+<script src="js/jquery-1.11.1.js"></script>
+<script src="js/main.js"></script>
+<script src="js/fresh_open.js" type="text/javascript"></script>
 </body>
 </html>
