@@ -10,10 +10,8 @@ $result_user = mysql_fetch_array($find_user);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>易可社团-广场</title>
-<link href="css/square.css" type="text/css" rel="stylesheet">
 <link href="css/main.css" type="text/css" rel="stylesheet">
-<script src="js/jquery-1.11.1.js"></script>
-<script src="js/square.js"></script>
+<link href="css/square.css" type="text/css" rel="stylesheet">
 </head>
 
 
@@ -324,5 +322,7 @@ $result_user = mysql_fetch_array($find_user);
 </div>
 <div style="clear:both;"></div>
 <div style="height:100px;"></div>
+<script src="js/jquery-1.11.1.js"></script>
+<script src="js/square.js"></script>
 </body>
 </html>

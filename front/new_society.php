@@ -173,7 +173,7 @@
 </body>
 <script src="js/jquery-1.11.1.js"></script>
 <script src="js/main.js"></script>
-<script type="text/javascript" src="js/jquery.form.js"></script>
+<script src="js/jquery.form.js" type="text/javascript"></script>
 <script src="js/new_society.js" type="text/javascript"></script>
 </html>
 

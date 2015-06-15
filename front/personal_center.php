@@ -11,8 +11,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>个人中心</title>
-<link href="css/personal_center.css" type="text/css" rel="stylesheet">
 <link href="css/main.css" type="text/css" rel="stylesheet">
+<link href="css/personal_center.css" type="text/css" rel="stylesheet">
 
 </head>
 
@@ -34,9 +34,10 @@
   <div class="left">
       <div class="picture"></div>
       <div class="buttons" id="fixedSide">
-          <a href="personal_center.php"><div><li>我的动态</li></div></a>
-      	  <a href="personal_center.php?action=info"><div><li>个人资料</li></div></a>
-          <a href="personal_center.php?action=account"><div><li>账号信息</li></div></a>
+      	   <a href="personal_center_myconcern.php"><div><li>我关注的</li></div></a>
+           <a href="personal_center.php"><div><li>我的动态</li></div></a>
+      	   <a href="personal_center.php?action=info"><div><li>个人资料</li></div></a>
+           <a href="personal_center.php?action=account"><div><li>账号信息</li></div></a>
       </div>
   </div>
 

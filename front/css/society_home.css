@@ -108,9 +108,14 @@ body{
         -o-transition:background 0.3s; /* Opera */	
 		background:#00ACFF;}	
 .buttons{
-	width:240px;
+	width:238px;
 	background:#fff;
+	border:1px solid #eee;
 	box-shadow:0 0 3px #ccc;}
+	/*鼠标轮滚动后的样式*/
+	.scroll{
+		position:fixed;
+		top:50px;}
 	.buttons div{
 		width:238px;
 		margin:auto;
@@ -151,12 +156,12 @@ body{
         .clearfix:after { content:"."; display:block; height:0; clear:both; visibility:hidden}
         .clearfix { *height:1%;}
         #list { margin: 0 auto; text-align: left; width: 546px;}
-        .box { border-top: 1px solid #eee; position: relative;  width: 546px; padding: 20px 0}
+        .box { border:1px solid #eee; position: relative;  width: 524px; padding: 10px 10px;margin:5px 0;}
         .box:hover .close { display: block;}
         .close { display: none; top:0px; right: 0px; width: 28px; height: 28px; border: 1px solid #eee; position: absolute; background: #f2f4f7; line-height: 27px; text-align: center;}
         .close:hover { background: #c8d2e2; text-decoration: none;}
         .user_face{ float: left; width: 60px; height: 60px; margin-right: 10px;}
-        .content { float: left; width: 446px;}
+        .content { float: left; width: 426px;}
         .host { margin-bottom: 10px;}
         .txt { margin-bottom: 10px;}
         .user { color: #369; }
@@ -169,7 +174,7 @@ body{
         .comment-box { padding: 10px 0; border-top: 1px solid #eee; font-size:12px;}
         .comment-box:hover { background: rgb(247, 247, 247);}
         .comment-box .myhead { float: left; width: 30px; height: 30px; margin-right: 10px;}
-        .comment-box .comment-content { float: left; width: 400px; }
+        .comment-box .comment-content { float: left; width: 380px; }
         .comment-box .comment-content .comment-time { color: #ccc; margin-top: 3px; line-height: 16px; position: relative;}
         .comment-box .comment-content .comment-praise { display: none; color: #369; padding-left: 17px; height: 20px; background: url("../../image/user_image/test/praise.png") no-repeat;  position: absolute; bottom: 0px; right: 44px;}
         .comment-box .comment-content .comment-operate { display: none; color: #369; height: 20px;  position: absolute; bottom: 0px; right: 10px;}

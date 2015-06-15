@@ -7,12 +7,8 @@ error_reporting(E_ALL & ~E_NOTICE);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>创建社团</title>
-<link href="css/society_establish.css" type="text/css" rel="stylesheet">
 <link href="css/main.css" type="text/css" rel="stylesheet">
-<script src="js/jquery-1.11.1.js"></script>
-<script src="js/main.js"></script>
-<script src="js/pic_preview.js"></script>
-<script src="js/society_establish.js" type="text/javascript"></script>
+<link href="css/society_establish.css" type="text/css" rel="stylesheet">
 </head>
 
 <body>
@@ -102,6 +98,10 @@ error_reporting(E_ALL & ~E_NOTICE);
     <a href="../background/background_person/login.php?action=logout"><div id="icon_3"></div></a>
 </div>
 
+<script src="js/jquery-1.11.1.js"></script>
+<script src="js/main.js"></script>
+<script src="js/pic_preview.js"></script>
+<script src="js/society_establish.js" type="text/javascript"></script>
 </body>
 </html>
 

@@ -3,8 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>我的社团-社团动态</title>
-<link href="css/society_home.css" type="text/css" rel="stylesheet">
 <link href="css/main.css" type="text/css" rel="stylesheet">
+<link href="css/society_home.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 <div class="top_back transparency"></div>
@@ -29,9 +29,9 @@
 <div class="body">
     <!--左侧导航按钮-->
     <div class="left">
-    	<a href="#"><div class="fresh_button">开启纳新</div></a>
+    	<a href="fresh_open.php"><div class="fresh_button">开启纳新</div></a>
         <div class="buttons" id="fixedSide">
-        <a href="#"><div><li><img src=""/>社团动态</li></div></a>
+        <a href="society_home.php"><div><li><img src=""/>社团动态</li></div></a>
         <a href="#"><div><li><img src=""/>通讯录</li></div></a>
         <a href="#"><div><li><img src=""/>活动</li></div></a>
         <a href="#"><div><li><img src=""/>社团资料</li></div></a>
