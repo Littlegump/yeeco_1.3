@@ -8,8 +8,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>修改密码</title>
-<link href="css/change_password.css" type="text/css" rel="stylesheet">
 <link href="css/main.css" type="text/css" rel="stylesheet">
+<link href="css/change_password.css" type="text/css" rel="stylesheet">
 </head>
 
 <body>

@@ -52,7 +52,7 @@ function free_skipPage(page){
 //异步提交表单功能
 $(document).ready(function () {
     // 提交表单form_1（组织架构）
-    $("#form_1").ajaxForm(function() {  
+    $("#form_1").ajaxForm(function() {
        page_to('1','0'); 
     });
 	// 提交表单form_1（组织架构）

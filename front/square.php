@@ -1,16 +1,17 @@
 <?php
 session_start();
 error_reporting(E_ALL & ~E_NOTICE);
+$uId=$_SESSION['userId'];
+$find_user = mysql_query("select * from user where uId='$uId' limit 1");
+$result_user = mysql_fetch_array($find_user);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>易可社团-广场</title>
-<link href="css/square.css" type="text/css" rel="stylesheet">
 <link href="css/main.css" type="text/css" rel="stylesheet">
-<script src="js/jquery-1.11.1.js"></script>
-<script src="js/square.js"></script>
+<link href="css/square.css" type="text/css" rel="stylesheet">
 </head>
 
 
@@ -21,7 +22,7 @@ error_reporting(E_ALL & ~E_NOTICE);
       <div class="top_right">
           <ul>
             <li>
-                <span><img src="../image/web_image/image_g"/></span>
+                <span><img src="../<?php echo $result_user['userFace']?>"/></span>
                 <span><?php echo $_SESSION['userName']?></span>
             </li> 
             <div style="clear:both;"></div>
@@ -321,5 +322,7 @@ error_reporting(E_ALL & ~E_NOTICE);
 </div>
 <div style="clear:both;"></div>
 <div style="height:100px;"></div>
+<script src="js/jquery-1.11.1.js"></script>
+<script src="js/square.js"></script>
 </body>
 </html>
