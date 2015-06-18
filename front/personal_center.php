@@ -13,7 +13,6 @@
 <title>个人中心</title>
 <link href="css/main.css" type="text/css" rel="stylesheet">
 <link href="css/personal_center.css" type="text/css" rel="stylesheet">
-
 </head>
 
 <body>
@@ -35,9 +34,8 @@
       <div class="picture"></div>
       <div class="buttons" id="fixedSide">
       	   <a href="personal_center_myconcern.php"><div><li>我关注的</li></div></a>
-           <a href="personal_center.php"><div><li>我的动态</li></div></a>
-      	   <a href="personal_center.php?action=info"><div><li>个人资料</li></div></a>
-           <a href="personal_center.php?action=account"><div><li>账号信息</li></div></a>
+      	  <a href="personal_center.php?action=info"><div><li>个人资料</li></div></a>
+          <a href="personal_center.php?action=account"><div><li>账号信息</li></div></a>
       </div>
   </div>
 
@@ -56,24 +54,44 @@
 
 <?php
 	}else if($action == "info"){
+		$infoResult=mysql_fetch_array(mysql_query("select u.userName,u.userSchool,u.userTel,u.userFace,e.userEmail,e.userSex,e.userBirth,e.userPlace,e.userClass,e.userQQ FROM user as u inner join userextrainfo as e
+on u.uId=e.uId  where e.uId='$uId' limit 1"));
+		$userPlace=$infoResult['userPlace'];
+		$userBirth=$infoResult['userBirth'];
+		$userSex=$infoResult['userSex'];
+		if($userBirth){
+			$userBirth=preg_split('/-/',$userBirth, -1, PREG_SPLIT_NO_EMPTY);
+			$birthYear=$userBirth[0];
+			$birthMonth=$userBirth[1];
+			$birthDay=$userBirth[2];
+		}
+		$native_city="城市";
+		if($userPlace){
+			$userPlace=preg_split('/-/',$userPlace, -1, PREG_SPLIT_NO_EMPTY);
+			$native_por=$userPlace[0];
+			$native_city=$userPlace[1];
+		}
 ?>
+
+
 <!--个人资料页面-->   
+
 <div class="main" id="main_2">
 	<div class="page_title">
         <li class="title_left">个人资料</li>
     </div>
     <div class="contact">
-		<form class="persenal_info" action="#" method="post" enctype="multipart/form-data">
+		<form class="persenal_info" action="../background/background_person/modify_userinfo.php?op=info" method="post" enctype="multipart/form-data">
           <ul>
             <li class="refer_a">
                 <label for="name">姓名：</label>
-                <input name="name" type="text"/>
-                <div class="preview_face"><img id="pre_img" src="../#"></div>
-                <input type="file" class="face_pic" name="face_pic" id="pic" onchange="setImagePreviews();"/>
+                <input name="username" type="text" value="<?php echo $infoResult['userName']?>"/>
+                <div class="preview_face"><img id="pre_img" src="../<?php echo $infoResult['userFace']?>"></div>
+                <input id="pic" type="file" class="face_pic" name="pic" accept="image/gif/png/jpeg/jpg" onchange="setImagePreviews();"/>
             </li>
             <li>
                 <label for="sex">性别：</label>
-                <span><input  type="radio" name="sex" value="男" id="boy" checked="checked"><label for="boy">男</label>
+                <span><input  type="radio" name="sex" value="男" id="boy"><label for="boy" class="gray">男</label>
                 <input  type="radio" name="sex" value="女" id="girl"><label for="girl" class="gray">女</label></span>
             </li>
             <li>
@@ -230,38 +248,44 @@
                         <option value="台湾" id="34">台湾</option>
                     </select>
 					<select class="native_city" id="native_city" name="native_city">
-	<option id="city" selected="selected" value="">城市</option>
+	<option id="city" selected="selected" value="<?php echo $native_city?>"><?php echo $native_city?></option>
 </select>
-				</span>                
+				</span>              
             </li>
             <li>
                 <label for="school">所在学校：</label>
-                <input name="school" type="text" value="<?php echo $shcool?>" readonly="readonly"/>
+                <input name="school" type="text" value="<?php echo $infoResult['userSchool']?>" readonly="readonly"/>
             </li>
             <li>
                 <label for="major">专业班级：</label>
-                <input name="major" type="text"/>
+                <input name="major" type="text" value="<?php echo $infoResult['userClass']?>"/>
+
             </li>
             <li>
                 <label for="tel_number">联系电话：</label>
-                <input name="tel_number" type="text" value="88888888888" readonly="readonly"/>
+                <input name="tel_number" type="text" value="<?php echo $infoResult['userTel']?>" readonly="readonly"/>
             </li>
             <li>
                 <label for="email">邮箱：</label>
-                <input name="email" type="text"/>
+                <input name="email" type="text" value="<?php echo $infoResult['userEmail']?>"/>
             </li>
             <li>
                 <label for="qq">QQ：</label>
-                <input name="qq" type="text"/>
+                <input name="qq" type="text" value="<?php echo $infoResult['userQQ']?>"/>
             </li>
               	<input type="submit" class="button" value="保存" />
           </ul>   
         </form>
     </div>
 </div>
+
 <?php
+
+
+
 	}else if($action == "account"){
-		$result=mysql_fetch_array(mysql_query("select userTel from user where uId='$uId' limit 1"));
+		$accountResult=mysql_fetch_array(mysql_query("select userTel from user where uId='$uId' limit 1"));
+
 ?>
 <!--账号信息页面-->   
 <div class="main" id="main_3">
@@ -272,7 +296,7 @@
     	<form class="tel_form" action="../background/background_person/modify_userinfo.php?op=tel" method="post">
           <li>
             <label>当前账号：</label>
-            <input name="userTel" type="text" value="<?php echo $result['userTel']?>" readonly="readonly" onkeydown="disappear('otel');" />
+            <input name="userTel" type="text" value="<?php echo $accountResult['userTel']?>" readonly="readonly" onkeydown="disappear('otel');" />
           </li>
           <li><span id="otel" style="display:none"></span></li>
           <li><a class="gray" href="javascript:change_tel()">绑定其他手机号</a></li>
@@ -319,11 +343,29 @@
      <a href="personal_center.php"><div id="icon_2"></div></a>
      <a href="../background/background_person/login.php?action=logout"><div id="icon_3"></div></a>
 </div>
+
 <script src="js/jquery-1.11.1.js"></script>
 <script src="js/main.js"></script>
 <script src="js/personal_center.js" type="text/javascript"></script>
-<script src="res_package/birth&native.js" type="text/javascript"></script>
 <script src="js/pic_preview.js" type="text/javascript"></script>
+<script src="res_package/birth&native.js" type="text/javascript"></script>
+<?php
+	if($userBirth){
+		echo  "<script>$('#birthyear').val('$birthYear');$('#birthmonth').val('$birthMonth');$('#birthday').val('$birthDay')</script>";
+	}
+	if($userPlace){
+		echo  "<script>$('#native_por').val('$native_por')</script>";
+	}
+	if($userSex=='男'){
+		echo  "<script>$('#boy').attr('checked','checked');</script>";
+	}else{
+    	echo  "<script>$('#girl').attr('checked','checked'); </script>";
+    }
+
+?>
+
+
+
 </body>
 </html>
 

@@ -1,3 +1,10 @@
+<?php 
+session_start();
+error_reporting(E_ALL & ~E_NOTICE);
+require_once('../background/conf/connect.php');
+$sId=$_GET['sId'];
+$societyRes=mysql_fetch_array(mysql_query("select *  from society where sId='$sId'"));
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -11,7 +18,7 @@
   <div class="top">
       <ul>
         <li class="a">logo</li>
-        <li class="b">MT音乐俱乐部</li>
+        <li class="b"><?php echo $societyRes['sName']?></li>
         <li class="c">返回&nbsp&nbsp;<a href="square.php">易可广场>></a></li>
       </ul>
       <div style="clear:both;"></div>
@@ -20,23 +27,33 @@
 <!--社团封面部分-->
 <div class="head">
     <div class="head_in">
-    	<div class="cover_pic"><img src=""/></div>
-        <div class="name"><strong>MT音乐俱乐部</strong></div>
-        <div class="description"><p>这是一个，值得你去追求梦想，不断前行，不断成长的地方。在这里，你会啦啦啦啦啦啦啦啦啦！</p></div>
+    	<div class="cover_pic"><img src="<?php echo substr($societyRes['sImg'],3)?>"/></div>
+        <div class="name"><strong><?php echo $societyRes['sName']?></strong></div>
+        <div class="description"><p><?php echo $societyRes['sDesc']?></p></div>
     </div>
 </div>
 
 <div class="body">
     <!--左侧导航按钮-->
     <div class="left">
-    	<a href="fresh_open.php"><div class="fresh_button">开启纳新</div></a>
+<?php
+	if(!$societyRes['isFresh']){
+?>
+    	<a href="fresh_open.php?sId=<?php echo $sId?>&sName=<?php echo $societyRes['sName']?>"><div class="fresh_button">开启纳新</div></a>
+<?php
+	}else{
+?>
+        <a href="fresh_detail.php?sId=<?php echo $sId?>"><div class="fresh_button">查看纳新</div></a>
+<?php
+	}
+?>
         <div class="buttons" id="fixedSide">
-        <a href="society_home.php"><div><li><img src=""/>社团动态</li></div></a>
-        <a href="#"><div><li><img src=""/>通讯录</li></div></a>
-        <a href="#"><div><li><img src=""/>活动</li></div></a>
-        <a href="#"><div><li><img src=""/>社团资料</li></div></a>
-        <a href="#"><div><li><img src=""/>换届</li></div></a>
-        <a href="#"><div><li><img src=""/>找赞助</li></div></a>
+        <a href="society_home.php"><div class="nav_on"><li><img src=""/>社团动态</li></div></a>
+        <a href="address_book.php"><div><li><img src=""/>通讯录</li></div></a>
+        <a href="acivity.php"><div><li><img src=""/>活动</li></div></a>
+        <a href="society_info.php"><div><li><img src=""/>社团资料</li></div></a>
+        <a href="change_term.php"><div><li><img src=""/>换届</li></div></a>
+        <a href="find_sponsor.php"><div><li><img src=""/>找赞助</li></div></a>
       </div>
     </div>
     <!--中间主体内容-->
@@ -144,7 +161,12 @@
     </div>
     <!--右侧 广告 或者其他-->
     <div class="right">
-       <div class="advertisement">
+    	<div class="board">
+            <strong>公告栏</strong><a href="javascript:edit()" id="a1">编辑</a><a href="javascript:save()" style="display:none" id="a2">保存</a>
+				<br/><input type="hidden" id="sId" value="<?php echo $societyRes['sId']?>"/><textarea name="board" id="board_text" placeholder="不超过140个字符" readonly="readonly"><?php echo $societyRes['Board']?></textarea>
+            
+        </div>
+        <div class="advertisement">
           <div class="ad_title">
             <li class="ad_title_li">推广链接</li>
           </div>
@@ -153,7 +175,7 @@
           <div class="ad_img"><img src="../image/web_image/测试图片/8.png"></div>
           <div class="ad_img"><img src="../image/web_image/测试图片/9.png"></div>
           <div style="clear:both;"></div>
-      </div>  
+        </div>  
     </div>
 </div>
 

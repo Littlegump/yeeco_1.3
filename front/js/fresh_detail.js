@@ -1,15 +1,5 @@
-$(".top_back").hover(function(){
-		    $(".top_back").removeClass("transparency");
-		},function(){
-			$(".top_back").addClass("transparency");
-	});
-$(".top").hover(function(){
-		    $(".top_back").removeClass("transparency");
-		},function(){
-			$(".top_back").addClass("transparency");
-	});
+// JavaScript Document
 $(document).ready(function(){
-	//在未启用编辑模式下，表单样式不可用
 	$(".board textarea").focus(function(){
 		var isEdit = $("#a2").attr("style").indexOf("display"); 
 		if(isEdit==0){
@@ -23,28 +13,36 @@ $(document).ready(function(){
 		}
 	})
 
-	$(".top_back").hover(function(){
-				$(".top_back").removeClass("transparency");
-			},function(){
-				$(".top_back").addClass("transparency");
-		});
-	$(".top").hover(function(){
-				$(".top_back").removeClass("transparency");
-			},function(){
-				$(".top_back").addClass("transparency");
-		});
-
-	var jWindow = $(window);
-	jWindow.scroll(function(){
-		var scrollHeight =jWindow.scrollTop();
-		if(scrollHeight>310){
-		    $('#fixedSide').addClass("scroll");
-		}else{
-			$('#fixedSide').removeClass("scroll");
-		}
-	})	
+	$("#read_form").hover(function(){
+		$("#read_form i").css("background-position","0 -75px");
+	},function(){
+		$("#read_form i").css("background-position","0 0");
+	});
 })
-
+//查看打印报名表
+function read_form(){
+	coverall();
+	newbox('form_box');
+}
+//关闭报名表
+function return_main(){
+	movebox('form_box');
+	nocover();
+}
+	
+var t=0;
+//纳新详情
+function detail(){
+	if(t==0){
+		$("#detail").slideDown("fast");
+		$(".more").css("background-position","0 0");
+		t=1;
+	}else{
+		$("#detail").slideUp("fast");
+		$(".more").css("background-position","0 -25px");
+		t=0;
+	}
+}
 //编辑公告
 function edit(){
 	$("#board_text").removeAttr("readonly");
@@ -72,5 +70,12 @@ function save(){
 			success:function(data){
 			},
 			error:function(jqXHR){alert("操作失败"+jqXHR.status);}
-		})
+	})
 }
+//停止纳新
+function stopFresh(){
+	
+	
+}
+
+

@@ -20,13 +20,15 @@
 	//生成加密字符，用来验证激活社团
 	$flag=md5(rand());
 	//向数据库插入社团注册信息
-	$insertsql = mysql_query("insert into pre_society(sName,sSchool,sPrincipal,uId,sCate,sDesc,sImg,email,flag) values('$sName','$sSchool','$sPrincipal','$principalId','$sCate','$sDesc','$sImg','$email','$flag')");
+	$insertsql = mysql_query("insert into pre_society(sName,sSchool,sPrincipal,uId,sCate,sDesc,sImg,flag) values('$sName','$sSchool','$sPrincipal','$principalId','$sCate','$sDesc','$sImg','$flag')");
 	$id = mysql_insert_id();//此id为新增社团的主键id
+	//将邮箱信息userextrainfo表中
+	mysql_query("update userextrainfo set userEmail='$email' where uId='$principalId'");
 	//发送邮件
 	$smtpemailto=$email;
 	$mailbody = getEmailBody($id,$flag,$principalId,$sName);
 	$flag=$smtp->sendmail($smtpemailto, $smtpusermail, $mailsubject, $mailbody, $mailtype);
-	if($flag && $insertsql){
+	if($insertsql){
 		echo "<script>window.location.href='../../front/emailed.php?sId=$id'</script>";
 	}else{
 		echo "<script>alert('社团创建失败,请重新创建!');window.location.href='../../front/society_establish.php'</script>";

@@ -1,6 +1,8 @@
 <?php
 session_start();
 error_reporting(E_ALL & ~E_NOTICE);
+$sId=$_GET['sId'];
+$sName=$_GET['sName'];
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -10,14 +12,12 @@ error_reporting(E_ALL & ~E_NOTICE);
 <link href="css/main.css" type="text/css" rel="stylesheet">
 <link href="css/fresh_open.css" type="text/css" rel="stylesheet">
 </head>
-
-
 <body>
 <div class="top_back">
   <div class="top">
       <ul>
-        <li class="a">开启纳新</li>
-        <li class="b">返回&nbsp&nbsp;<a href="#">我的社团>></a></li>
+        <li class="a">MT音乐俱乐部&nbsp;·&nbsp;开启纳新</li>
+        <li class="b">返回&nbsp&nbsp;<a href="society_home.php">我的社团>></a></li>
       </ul>
   </div>
 </div>
@@ -34,8 +34,8 @@ error_reporting(E_ALL & ~E_NOTICE);
     
     <div class="contact">
     <form action="../background/background_society/society_fresh_form.php" method="post" id="fresh_form" enctype="multipart/form-data">
-    <input type="hidden" name="sId" value="<?php echo $_SESSION['sId']?>">
-    <input type="hidden" name="sName" value="<?php echo $_SESSION['sName']?>">
+    <input type="hidden" name="sId" value="<?php echo $sId?>">
+    <input type="hidden" name="sName" value="<?php echo $sName?>">
       <div class="page_1" id="0">
           <ul>
             <li>
@@ -112,7 +112,7 @@ error_reporting(E_ALL & ~E_NOTICE);
               </tr>
             </table>
           </li>
-          <li><a href="#"><div class="button_4 button">进入纳新详情页</div></a></li>
+          <li><a href="fresh_detail.php?sId=<?php echo $sId ?>"><div class="button_4 button">进入纳新详情页</div></a></li>
           <li>返回&nbsp&nbsp;<a href="#">我的社团>></a></li>
           </ul>
       <div style="clear:both;"></div> 
@@ -121,7 +121,7 @@ error_reporting(E_ALL & ~E_NOTICE);
      
     </div>
   </div>
-   
+<div class="right">   
   <div class="advertisement">
       <div class="ad_title">
         <li class="ad_title_li">推广链接</li>
@@ -132,7 +132,7 @@ error_reporting(E_ALL & ~E_NOTICE);
       <div class="ad_img"><img src="../image/web_image/测试图片/9.png"></div>
       <div style="clear:both;"></div>
   </div> 
-     
+</div>
 </div>
 
 <!--侧边快捷操作面板--> 

@@ -12,6 +12,7 @@ function sendcode(){
 	
 	//检查手机号码格式以及是否被注册了
 	var usertel=$("[name='userTel']").val();
+	var x=$("[name='userTel']");
 	var temp=usertel.substring(0,2);
 	if(usertel != ""){
 	if(usertel.length != 11){
@@ -131,7 +132,9 @@ function checking_find(){
 	}else{
 	    //用户名格式正确，判断该用户是否存在
 		//*************************************************************************
-		$("#otel").load("here*****is******url",{"ousertel":usertel},function(){
+
+		$("#otel").load("../background/background_person/isExistUser.php",{"ousertel":usertel},function(){
+
 			ddd = $("#otel").text();
 			if(ddd){
 		       $("#otel").css("display","block");

@@ -11,7 +11,7 @@ function page_to(page_a,page_b){
 
 //异步提交表单功能
 $(document).ready(function () {
-    // 提交表单form_1（组织架构）
+    // 提交表单
     $("#fresh_form").ajaxForm(function(){  
     	page_to('3','2');
     });
