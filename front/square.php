@@ -2,8 +2,24 @@
 session_start();
 error_reporting(E_ALL & ~E_NOTICE);
 $uId=$_SESSION['userId'];
+require_once('../background/conf/connect.php');
+//查找用户
 $find_user = mysql_query("select * from user where uId='$uId' limit 1");
 $result_user = mysql_fetch_array($find_user);
+//查找用户相关社团ID
+$user_society_Id=mysql_query("SELECT societyId FROM user_society_relation WHERE userId='$uId'");
+if($user_society_Id && mysql_num_rows($user_society_Id)){
+	    while($row = mysql_fetch_assoc($user_society_Id)){
+			$societyId[]=$row['societyId'];
+		}			
+}
+//获取社团名称
+if($societyId){
+	foreach($societyId as $value){
+		$res=mysql_fetch_array(mysql_query("select sName from society where sId='$value' "));
+		$sName[]=$res['sName'];
+	}
+}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -65,9 +81,14 @@ $result_user = mysql_fetch_array($find_user);
       <div style="clear:both;"></div>
       <div id="mysociety">
         <ul>
-          <a href="#">MT音乐俱乐部</a>
-          <a href="#">MT音乐俱乐部</a>
-          <a href="#">MT音乐俱乐部</a>
+        <?php 
+			if($sName){
+				for($i=0;$i<=sizeof($sName)-1;$i++){
+		?>
+          	<a href="society_home.php?sId=<?php echo $societyId[$i]?>"><?php echo $sName[$i]?></a>
+         <?php 
+		 	}}
+		 ?>
           <div style="clear:both;"></div>
         </ul>   
       </div>
@@ -110,11 +131,18 @@ $result_user = mysql_fetch_array($find_user);
 
 
 <div style="clear:both;"></div>
+
+<?php
+//查询社团封面 
+$sId=23;
+$sInfo=mysql_fetch_array(mysql_query("select sImg from society where sId='$sId'"));
+$sImg=substr($sInfo['sImg'],3);
+?>
 <!--社团封面墙-->
 <div class="society_card" id="cards">
   <div class="card_in">
     <div id="card_1" class="card_a" onmouseover="movecover(this)" onmouseout="recover(this)">
-        <a href=""><img src="../image/web_image/测试图片/羽毛球社 封面.jpg"/></a>
+        <a href="society_visitor.php?sId=<?php echo $sId ?>&uId=<?php echo $uId?>"><img src="<?php echo $sImg?>"/></a>
         <div id="card_1_cover" class="card_a_cover"></div>
         <div id="card_1_det" class="card_a_det" style="display:none;">
         </div>

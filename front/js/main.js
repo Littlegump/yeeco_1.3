@@ -73,8 +73,3 @@ function newbox(wid){
 function movebox(wid){
 	$('#'+wid).fadeOut("fast");
 }
-
-
-
-
-

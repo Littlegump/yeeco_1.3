@@ -31,7 +31,9 @@
 	margin:0 auto;
 	width:1100px;}
 
-
+.right{
+	float:right;
+	width:280px;}
 .main{
 	float:left;
 	width:805px;

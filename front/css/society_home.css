@@ -74,7 +74,7 @@ body{
 		top:120px;
 		left:250px;}
 		.name strong{
-			color:#fff;
+			color:#00496C;
 			font-size:24px;
 			line-height:50px;}
 	.description{
@@ -140,6 +140,29 @@ body{
 .right{
 	float:right;
 	width:280px;}
+.board{
+	padding:10px 20px;
+	margin-bottom:10px;
+	width:240px;
+	height:150px;
+	border:1px solid #f2f2f2;
+	box-shadow:0 0 3px #ccc;
+	background:#fff;}
+	.board strong{
+		height:30px;
+		line-height:30px;
+		font-size:18px;
+		color:#333;}
+	.board a{
+		margin-left:145px;}
+	.board textarea{
+		padding:10px;
+		height:80px;
+		width:210px;
+		margin:5px auto;
+		display:block;
+		border:1px solid #fff;
+		line-height:20px;}
 
 /*中间主体部分样式*/
 .main{

@@ -52,7 +52,6 @@
         <div class="logon_header">
           登&nbsp;录
         </div>
-
     <form name="LoginForm" action="background/background_person/login.php" method="post"><!--指向后台的登录模块.php-->
         <div class="lnusername">
             <div class="icon"></div>
@@ -66,7 +65,6 @@
         <label class="forget"><a href="front/change_password.php">忘记密码</a></label>
         <input type="submit" name="submit" class="logon" value="登录">
     </form>
-
     </div>
 
     
