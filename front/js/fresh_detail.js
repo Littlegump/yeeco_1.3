@@ -1,9 +1,6 @@
 // JavaScript Document
 $(document).ready(function(){
-<<<<<<< HEAD
-=======
 	//在未启用编辑模式下，表单样式不可用
->>>>>>> origin/lsl_develop
 	$(".board textarea").focus(function(){
 		var isEdit = $("#a2").attr("style").indexOf("display"); 
 		if(isEdit==0){
@@ -16,8 +13,6 @@ $(document).ready(function(){
 			$(this).css("border","1px solid #fff");
 		}
 	})
-<<<<<<< HEAD
-=======
 	
 	//报名表下，表达那样式不可用
 	$(".app_form textarea").focus(function(){
@@ -32,7 +27,6 @@ $(document).ready(function(){
 	$(".app_form :text").blur(function(){
 		$(this).css("border","0 solid #fff");
 	})
->>>>>>> origin/lsl_develop
 
 	$("#read_form").hover(function(){
 		$("#read_form i").css("background-position","0 -75px");
@@ -95,13 +89,8 @@ function save(){
 }
 //停止纳新
 function stopFresh(){
-<<<<<<< HEAD
-	
-	
-=======
 	coverall();
 	newbox('notice_box');
->>>>>>> origin/lsl_develop
 }
 
 

@@ -128,10 +128,6 @@ $fBoard=$sinfoResult['Board'];
 <!--查看、打印报名表--> 
 <div class="app_form" id="form_box" style="display:none;">
 	<strong>报名表<a href="javascript:return_main()">&times;</a></strong>
-<<<<<<< HEAD
-	
-</div>
-=======
 	      <label><span>*</span>填写报名表：</label>
 <form action="background/society-apply-form.php" method="post" name="apply_table">
        <input type="hidden" name="sId" value="<?php echo $sId?>">
@@ -209,8 +205,6 @@ $fBoard=$sinfoResult['Board'];
     <div class="choose"><a class="button">公示</a><a class="button">不公示</a></div>
 
 </div>
-
->>>>>>> origin/lsl_develop
 <!--侧边快捷操作面板--> 
 <div class="icon_box">
 	<a href=""><div id="icon_1"></div></a>

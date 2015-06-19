@@ -1,7 +1,6 @@
 <?php
 error_reporting(E_ALL & ~E_NOTICE);
 require_once('../background/conf/connect.php');
-//$concern=0;//是否已经关注此社团的标志，若已关注，该值为“1”，否则为“0”；
 $sId=$_GET['sId'];
 $uId=$_GET['uId'];
 //查找社团信息
@@ -10,7 +9,6 @@ $sInfo=mysql_fetch_array(mysql_query("select * from society where sId='$sId'"));
 $fInfo=mysql_fetch_array(mysql_query("select * from society_fresh where sId='$sId'"));
 //查看是否关注此社团
 $concern=mysql_fetch_array(mysql_query("select isManage from user_society_relation where societyId='$sId' and userId='$uId'"));
-//print_r($concern['isManage']);exit;
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
