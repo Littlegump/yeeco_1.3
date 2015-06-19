@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 error_reporting(E_ALL & ~E_NOTICE);
 require_once('../background/conf/connect.php');
 $sId=$_GET['sId'];
