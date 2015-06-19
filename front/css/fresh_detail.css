@@ -206,23 +206,25 @@ body{
 		border:1px solid #fff;
 		line-height:20px;}
 
+
+/*报名表样式*/
 .app_form{
 	z-index:11;
 	position:fixed;
 	top:50%;
-	margin-top:-300px;
+	margin-top:-350px;
 	left:50%;
-	margin-left:-270px;
+	margin-left:-290px;
 	padding:10px;
 	border:1px solid #f2f2f2;
 	box-shadow:0 0 3px #ccc;
-	width:520px;
-	height:580px;
+	width:560px;
+	height:680px;
 	background:#fff;}
 	.app_form strong{
 		display:block;
 		width:500px;
-		margin:5px auto;
+		margin:10px auto;
 		line-height:26px;
 		font-size:18px;
 		text-align:center;}
@@ -230,7 +232,87 @@ body{
 		float:right;
 		font-size:24px;}
 
+.app_form table{
+	border:1px solid #ccc;
+	margin:10px auto;}
+.app_form table tr td{
+	font-size:14px;
+	text-align:center;
+	height:33px;
+	border:1px solid #ccc;}
+	.app_form input[type=text]{
+		text-align:center;
+		width:110px;
+		height:100%;
+		border:0;}
+    .app_form .photo{
+		position:relative;
+		background:#f2f2f2;
+		border:1px solid #ccc;}
+	.app_form .photo input[type=button]{
+		border:0;
+		display:block;
+		border-radius:25px;
+		margin:10px auto;
+		height:50px;
+		width:50px;
+		background:url(icon/上传图片图标1.png) center;}
+	.app_form .file{
+		display:block;
+		position:absolute;
+		height:70px;
+		width:50px;
+		cursor:pointer;
+		top:20px;
+		left:50%;
+		margin-left:-25px;
+		filter:alpha(opacity:0);
+		opacity: 0;}
+.app_form p{
+	margin-left:10px;
+	line-height:29px;
+	text-align:left;
+	width:300px;}
+.app_form textarea{
+	border:0;
+	width:480px;
+	line-height:29px;
+	height:67px;}
+	.app_form label{
+		margin-left:20px;}
+	.app_form label span{
+		color:#F00;}
 
-
-
-
+/*公示提醒框样式*/
+.notice_box{
+	z-index:11;
+	position:fixed;
+	top:50%;
+	margin-top:-70px;
+	left:50%;
+	margin-left:-210px;
+	padding:10px;
+	border:1px solid #f2f2f2;
+	box-shadow:0 0 3px #ccc;
+	height:140px;
+	width:400px;
+	background:#fff;}
+	.notice_box strong{
+		margin:10px auto;
+		font-size:18px;
+		text-align:center;
+		display:block;}
+	.notice_box p{
+		margin:10px auto;
+		display:block;
+		width:300px;
+		text-align:left;}
+	.choose a{
+		margin:10px 20px;
+		display:inline-block;
+		height:30px;
+		width:100px;
+		line-height:30px;}
+	.notice_box .choose{
+		width:284px;
+		margin:10px auto;}
