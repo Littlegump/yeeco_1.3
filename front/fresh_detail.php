@@ -24,7 +24,7 @@ $fBoard=$sinfoResult['Board'];
 <div class="top_back">
   <div class="top">
       <ul>
-        <li class="a">MT音乐俱乐部&nbsp;·&nbsp;纳新</li>
+        <li class="a"><?php  echo $freshResult['sName']?>&nbsp;·&nbsp;纳新</li>
         <li class="b">返回&nbsp&nbsp;<a href="society_home.php?sId=<?php echo $sId?>">我的社团>></a></li>
       </ul>
   </div>
@@ -203,6 +203,8 @@ $fBoard=$sinfoResult['Board'];
     <div class="choose"><a class="button">公示</a><a class="button">不公示</a></div>
 
 </div>
+
+
 
 <!--侧边快捷操作面板--> 
 <div class="icon_box">

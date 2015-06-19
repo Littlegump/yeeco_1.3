@@ -1,5 +1,6 @@
 // JavaScript Document
 $(document).ready(function(){
+
 	//在未启用编辑模式下，表单样式不可用
 	$(".board textarea").focus(function(){
 		var isEdit = $("#a2").attr("style").indexOf("display"); 
@@ -13,7 +14,7 @@ $(document).ready(function(){
 			$(this).css("border","1px solid #fff");
 		}
 	})
-	
+
 	//报名表下，表达那样式不可用
 	$(".app_form textarea").focus(function(){
 		$(this).css("border","0 solid #fff");
