@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 error_reporting(E_ALL & ~E_NOTICE);
 require_once('../background/conf/connect.php');
 $sId=$_GET['sId'];
@@ -200,7 +200,7 @@ $fBoard=$sinfoResult['Board'];
 <!--公式提醒框--> 
 <div class="notice_box" id="notice_box" style="display:none;">
 	<strong>本次纳新结束，是否将本次纳新结果进行公示？</strong>
-    <p>注：公示为期一周，一周后将自动关闭公示；<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;公示结果仅本校内同学可见！</p>
+    <p>注：公示为期两周，一周后将自动关闭公示；<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;公示结果仅本校内同学可见！</p>
     <div class="choose"><a class="button">公示</a><a class="button">不公示</a></div>
 </div>
 
