@@ -1,19 +1,27 @@
 <?php
 session_start();
 error_reporting(E_ALL & ~E_NOTICE);
+$sId=$_GET['sId'];
+$sName=$_GET['sName'];
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>开启纳新</title>
-</head>
-<link href="css/fresh_open.css" type="text/css" rel="stylesheet">
 <link href="css/main.css" type="text/css" rel="stylesheet">
-<script src="js/jquery-1.11.1.js"></script>
-<script src="js/main.js"></script>
-<script src="js/fresh_open.js" type="text/javascript"></script>
+<link href="css/fresh_open.css" type="text/css" rel="stylesheet">
+</head>
 <body>
+<div class="top_back">
+  <div class="top">
+      <ul>
+        <li class="a">MT音乐俱乐部&nbsp;·&nbsp;开启纳新</li>
+        <li class="b">返回&nbsp&nbsp;<a href="society_home.php">我的社团>></a></li>
+      </ul>
+  </div>
+</div>
+<div style="clear:both;"></div>
 
 <div class="body">   
   <div class="main">
@@ -25,42 +33,38 @@ error_reporting(E_ALL & ~E_NOTICE);
     </div>
     
     <div class="contact">
-    <form action="../background/background_society/society_fresh_form.php" method="post" name="activity_establish" id="activity_form" enctype="multipart/form-data">
-    <input type="hidden" name="sId" value="<?php echo $_SESSION['sId']?>">
-    <input type="hidden" name="sName" value="<?php echo $_SESSION['sName']?>">
+    <form action="../background/background_society/society_fresh_form.php" method="post" id="fresh_form" enctype="multipart/form-data">
+    <input type="hidden" name="sId" value="<?php echo $sId?>">
+    <input type="hidden" name="sName" value="<?php echo $sName?>">
       <div class="page_1" id="0">
           <ul>
             <li>
               <label>海报尺寸：</label>
-              <input type="radio" checked/><label for="size_2">245*325px</label>
+              <input type="radio" checked/><label for="size_2">600*340px</label>
               <div style="clear:both;"></div>
             </li>
             <li>
               <label>选择文件：</label>
               <input type='text' name='fImg' id='textfield' readonly="readonly"/>
               <div class="photo">
-                  <div class="ph_2">
+                  <div class="ph">
+                      <img id="pre_img" src="../image/web_image/社团封面.png"/>
+                      <input type="file" class="file" name="pic" id="pic" onchange="setImagePreviews();document.getElementById('textfield').value=this.value" />
                       <input type='button'/>
-                      <input type="file" class="file" name="pic" onchange="document.getElementById('textfield').value=this.value" />
                   </div>
               </div>
             </li>
             <li>
               <label></label>
-              <a href="">移除图片</a><span>（如果未上传将使用默认图片）</span>
+              <a href="javascript:delete_pic()">移除图片</a><span>（如果未上传将使用默认图片）</span>
             </li>
-            <li><div class="button" onclick="javascript:page_to('1','0');">下一步</div></li>
+            <li><input type="button" class="button" onclick="page_to('1','0');" value="下一步"/></li>
           </ul>
       <div style="clear:both;"></div> 
       </div>
       
       <div class="page_2" id="1"  style="display:none;">
           <ul>
-            <li>
-              <label for="apply_time"><span>*</span>报名时间：</label>
-              <input type="date" name="begin_date"/><input type="time" name="begin_time"/>-
-              <input type="date" name="end_date"/><input type="time" name="end_time"/>
-            </li>
             <li>
               <label for="notice"><span>*</span>纳新公告：</label>
               <textarea name="notice" placeholder="用一句话为你的社团吸引人气（10~40个字）" required></textarea>
@@ -69,7 +73,7 @@ error_reporting(E_ALL & ~E_NOTICE);
               <label for="detail">&nbsp;详细说明：</label>
               <textarea name="detail" placeholder="输入纳新的详细说明，介绍社团详情或纳新规则等（0~500个字）"></textarea>
             </li>
-            <li><div style="width:304px;margin:auto;"><div class="button_2" onclick="javascript:page_to('0','1');">上一步</div><div class="button_2" onclick="javascript:page_to('2','1');">下一步</div></div></li>
+            <li><div style="width:304px;margin:auto;"><input type="button" class="button" onclick="page_to('0','1');" value="上一步"/><input type="button" class="button" onclick="check_page()" value="下一步"/></div></li>
           </ul>
       <div style="clear:both;"></div> 
       </div>
@@ -86,22 +90,38 @@ error_reporting(E_ALL & ~E_NOTICE);
                 您还可以设置最多三个开放式问题<span class="gray">（回答字数不超过400字）</span>： 
             </li>
             <li>
-                <label for="ques_1">设置问题一：</label><input type="checkbox" id="set_1" checked onclick="javascript:judge_check('1');"/>
+                <label for="ques_1">设置问题一：</label><input type="checkbox" id="set_1" checked onclick="judge_check('1');"/>
                 <input type="text" name="que_1" placeholder="在这里输入问题（4~25字）" id="ques_1"/><br/>
-                <label for="ques_2">设置问题二：</label><input type="checkbox" id="set_2"  onclick="javascript:judge_check('2');"/>
+                <label for="ques_2">设置问题二：</label><input type="checkbox" id="set_2"  onclick="judge_check('2');"/>
                 <input type="text" name="que_2"  placeholder="在这里输入问题（4~25字）" id="ques_2" style="display:none;"/><br/>
-                <label for="ques_3">设置问题三：</label><input type="checkbox" id="set_3"  onclick="javascript:judge_check('3');"/>
+                <label for="ques_3">设置问题三：</label><input type="checkbox" id="set_3"  onclick="judge_check('3');"/>
                 <input type="text" name="que_3"  placeholder="在这里输入问题（4~25字）" id="ques_3" style="display:none;"/>
             </li>
-            <li><div style="width:304px;margin:auto;"><div class="button_3" onclick="javascript:page_to('1','2');">上一步</div><div class="button_3" onclick="javascript:submit_btn();">开启纳新</div></div></li>
+            <li><div style="width:304px;margin:auto;"><input type="button" class="button" onclick="page_to('1','2');" value="上一步"/><input type="submit" class="button" value="开启纳新"/></div></li>
           </ul>
       <div style="clear:both;"></div>
+      </div>
+      
+      <div class="page_4" id="3" style="display:none;">
+          <ul>
+          <li>
+            <table class="hello">
+              <tr>
+                <td><img src="icon/society_logo.png" width=100% height=100% /></td>
+                <td><span>恭喜您，现在已经成功开启纳新！</span></td>
+              </tr>
+            </table>
+          </li>
+          <li><a href="fresh_detail.php?sId=<?php echo $sId ?>"><div class="button_4 button">进入纳新详情页</div></a></li>
+          <li>返回&nbsp&nbsp;<a href="#">我的社团>></a></li>
+          </ul>
+      <div style="clear:both;"></div> 
       </div>
     </form>  
      
     </div>
   </div>
-   
+<div class="right">   
   <div class="advertisement">
       <div class="ad_title">
         <li class="ad_title_li">推广链接</li>
@@ -112,8 +132,20 @@ error_reporting(E_ALL & ~E_NOTICE);
       <div class="ad_img"><img src="../image/web_image/测试图片/9.png"></div>
       <div style="clear:both;"></div>
   </div> 
-     
+</div>
 </div>
 
+<!--侧边快捷操作面板--> 
+<div class="icon_box">
+	<a href=""><div id="icon_1"></div></a>
+    <a href="personal_center.php"><div id="icon_2"></div></a>
+    <a href="../background/background_person/login.php?action=logout"><div id="icon_3"></div></a>
+</div>
+
+<script src="js/jquery-1.11.1.js"></script>
+<script src="js/jquery.form.js" type="text/javascript"></script>
+<script src="js/main.js"></script>
+<script src="js/fresh_open.js" type="text/javascript"></script>
+<script src="js/pic_preview.js" type="text/javascript"></script>
 </body>
 </html>

@@ -8,11 +8,8 @@ $sId=$_GET['sId'];
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>邮件已发送</title>
-<link href="css/new_society.css" type="text/css" rel="stylesheet">
 <link href="css/main.css" type="text/css" rel="stylesheet">
-<script src="js/jquery-1.11.1.js"></script>
-<script src="js/main.js"></script>
-<script type="text/javascript" src="js/jquery.form.js"></script>
+<link href="css/new_society.css" type="text/css" rel="stylesheet">
 </head>
 
 <body>
@@ -43,6 +40,9 @@ $sId=$_GET['sId'];
      <a href="../background/background_person/login.php?action=logout"><div id="icon_3"></div></a>
 </div>
 
+<script src="js/jquery-1.11.1.js"></script>
+<script src="js/main.js"></script>
+<script type="text/javascript" src="js/jquery.form.js"></script>
 </body>
 </html>
 

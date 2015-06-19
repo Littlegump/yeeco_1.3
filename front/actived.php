@@ -7,11 +7,8 @@ error_reporting(E_ALL & ~E_NOTICE);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>已经激活了</title>
-<link href="css/new_society.css" type="text/css" rel="stylesheet">
 <link href="css/main.css" type="text/css" rel="stylesheet">
-<script src="js/jquery-1.11.1.js"></script>
-<script src="js/main.js"></script>
-<script type="text/javascript" src="js/jquery.form.js"></script>
+<link href="css/new_society.css" type="text/css" rel="stylesheet">
 </head>
 
 <body>
@@ -34,6 +31,9 @@ error_reporting(E_ALL & ~E_NOTICE);
        <p>该社团已被激活过了！</p>
     </div>
 </div>
+<script src="js/jquery-1.11.1.js"></script>
+<script src="js/main.js"></script>
+<script type="text/javascript" src="js/jquery.form.js"></script>
 </body>
 </html>
 

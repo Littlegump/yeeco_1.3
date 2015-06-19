@@ -6,8 +6,8 @@ error_reporting(E_ALL & ~E_NOTICE);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>注册</title>
-<link href="css/register.css" type="text/css" rel="stylesheet">
 <link href="css/main.css" type="text/css" rel="stylesheet">
+<link href="css/register.css" type="text/css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="res_package/school.css"/>
 </head>
  

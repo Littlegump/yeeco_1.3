@@ -4,11 +4,10 @@
 function judge_day(){
 	var month = $("#birthmonth").val();
 	if( month=="1" || month=="3" || month=="5" || month=="7" || month=="8" || month=="10" || month=="12"){
-	    var oForm = document.getElementById("birthday");
-        var newHtml = document.createElement("option");
-	        newHtml.value= "31";
-			newHtml.innerHTML = '31';
-			oForm.appendChild(newHtml);
+		$("option[value='31']").show();
+	}
+	if( month=="2" || month=="4" || month=="6" || month=="9" || month=="11"){
+	     $("option[value='31']").hide();
 	}
 }
 //加载该省份的所有城市
