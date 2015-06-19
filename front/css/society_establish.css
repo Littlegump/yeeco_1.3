@@ -8,7 +8,7 @@ body{
 	box-shadow:0 1px 2px #ccc;}
 .top{
     margin:0 auto;
-	width:1000px;
+	width:1100px;
 	height:100px;
 	background:#00ACFF;} 
 .a{
@@ -60,7 +60,7 @@ body{
 	margin:15px 0;
 	background:#fff;
 	box-shadow:0 0 3px #ccc;}
-	.page_title{
+.page_title{
 	margin:0 auto;
 	padding:0 10px;
 	width:750px;
@@ -73,8 +73,8 @@ body{
 	width:540px;
 	margin:10px auto;}
 	.contact_form label{
-		height:38px;
-		line-height:38px;
+		height:36px;
+		line-height:36px;
 		width:100px;
 		display:inline-block;
 		float:left;}

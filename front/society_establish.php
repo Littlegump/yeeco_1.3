@@ -7,12 +7,8 @@ error_reporting(E_ALL & ~E_NOTICE);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>创建社团</title>
-<link href="css/society_establish.css" type="text/css" rel="stylesheet">
 <link href="css/main.css" type="text/css" rel="stylesheet">
-<script src="js/jquery-1.11.1.js"></script>
-<script src="js/main.js"></script>
-<script src="js/pic_preview.js"></script>
-<script src="js/society_establish.js" type="text/javascript"></script>
+<link href="css/society_establish.css" type="text/css" rel="stylesheet">
 </head>
 
 <body>
@@ -55,12 +51,12 @@ error_reporting(E_ALL & ~E_NOTICE);
             <ul>
             <li><input type="checkbox" name="type[]" id="type_1" value="学生会（或其所属部门）" onclick="judge_check(this)" /><label for="type_1">学生会（或其所属部门）</label></li>
             <li><input type="checkbox" name="type[]" id="type_2" value="志愿者协会（或其所属部门）" onclick="judge_check(this)"/><label for="type_2">志愿者协会（或其所属部门）</label></li><br/>
-            <li><input type="checkbox" name="type[]" id="type_3" value="学术类" onclick="judge_check(this)"/><label for="type_3">学术类</label></li>
-            <li><input type="checkbox" name="type[]" id="type_4" value="艺术类" onclick="judge_check(this)"/><label for="type_4">艺术类</label></li>
-            <li><input type="checkbox" name="type[]" id="type_5" value="文化类" onclick="judge_check(this)"/><label for="type_5">文化类</label></li>
-            <li><input type="checkbox" name="type[]" id="type_6" value="体育类" onclick="judge_check(this)"/><label for="type_6">体育类</label></li>
-            <li><input type="checkbox" name="type[]" id="type_7" value="兴趣类" onclick="judge_check(this)"/><label for="type_7">兴趣类</label></li>
-            <li><input type="checkbox" name="type[]" id="type_8" value="其他" onclick="judge_check(this)"/><label for="type_8">其他</label></li>
+            <li><input type="checkbox" name="type[]" id="type_3" value="学术类"/><label for="type_3">学术类</label></li>
+            <li><input type="checkbox" name="type[]" id="type_4" value="艺术类"/><label for="type_4">艺术类</label></li>
+            <li><input type="checkbox" name="type[]" id="type_5" value="文化类"/><label for="type_5">文化类</label></li>
+            <li><input type="checkbox" name="type[]" id="type_6" value="体育类"/><label for="type_6">体育类</label></li>
+            <li><input type="checkbox" name="type[]" id="type_7" value="兴趣类"/><label for="type_7">兴趣类</label></li>
+            <li><input type="checkbox" name="type[]" id="type_8" value="其他"/><label for="type_8">其他</label></li>
             </ul>
             <div style="clear:both;"></div>
         </li>
@@ -102,6 +98,10 @@ error_reporting(E_ALL & ~E_NOTICE);
     <a href="../background/background_person/login.php?action=logout"><div id="icon_3"></div></a>
 </div>
 
+<script src="js/jquery-1.11.1.js"></script>
+<script src="js/main.js"></script>
+<script src="js/pic_preview.js"></script>
+<script src="js/society_establish.js" type="text/javascript"></script>
 </body>
 </html>
 

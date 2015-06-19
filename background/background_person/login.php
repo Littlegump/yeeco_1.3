@@ -3,7 +3,8 @@ session_start();
 error_reporting(E_ALL & ~E_NOTICE);
 //连接数据库文件
 require_once('../conf/connect.php');
-
+//导入加密解密文件
+require_once('../conf/enc.php');
 //删除cookie和session，执行退出操作
 if($_GET['action'] == 'logout'){
    logout();
@@ -56,9 +57,9 @@ if($result_user){
 function active_login(){
 	global $result_pre_user;
     global $usertel;
-	//$_SESSION['userName'] = $result_pre_user['userName'];
-	//跳转到个人中心
-	echo "<script>window.location.href='../../front/change_password.php?userTel=$usertel';</script>";
+	//对电话进行加密操作
+	$usertel=code($usertel);
+	echo "<script>window.location.href='../../front/change_password.php?account=$usertel';</script>";
 	}
 
 //执行登录操作

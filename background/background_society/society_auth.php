@@ -6,6 +6,7 @@ session_start();
 $sid=$_GET['sid'];
 $uid=$_GET['uid'];
 $sName=$_GET['sName'];
+$sName= iconv("gbk","utf-8",$sName);  
 $flag=$_GET['flag'];
 $isActivition=mysql_query("select * from pre_society where sId='$sid'");
 $result = mysql_fetch_array($isActivition);
@@ -14,7 +15,7 @@ if(!$result){
 	}else{
 			$check_query = mysql_fetch_array(mysql_query("select * from pre_society where sId='$sid' && flag='$flag' limit 1"));
 			if($check_query){
-				$insertsql = mysql_query("insert into society(sId,sName,sSchool,sPrincipal,uId,sCate,sDesc,sImg,email) select 					     				sId,sName,sSchool,sPrincipal,uId,sCate,sDesc,sImg,email from pre_society where sId='$sid'");
+				$insertsql = mysql_query("insert into society(sId,sName,sSchool,sPrincipal,uId,sCate,sDesc,sImg) select 					     				sId,sName,sSchool,sPrincipal,uId,sCate,sDesc,sImg from pre_society where sId='$sid'");
 				$regTime=time();
 				$updatesql=mysql_query("update society set regTime='$regTime' where sId='$sid'");
 				$delete_old = mysql_query("delete from pre_society where sId='$sid'");	

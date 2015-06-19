@@ -26,3 +26,11 @@
         return true;
     }
  
+//清除图片
+function delete_pic(){
+	document.getElementById("pre_img").src = "../image/web_image/社团封面.png";
+	var file = $(":file");
+    file.after(file.clone().val(""));
+    file.remove()
+	$("#textfield").val("");
+}
