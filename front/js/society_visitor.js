@@ -49,6 +49,7 @@ function change_concern(t){
 function concern(){	
 	var type=$(".concern").attr('id');
 	if(type == 'concern'){
+
 		//如果未关注，进行关注
 		$.ajax({
 			type:"GET",

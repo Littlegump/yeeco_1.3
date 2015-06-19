@@ -9,6 +9,7 @@ $sInfo=mysql_fetch_array(mysql_query("select * from society where sId='$sId'"));
 $fInfo=mysql_fetch_array(mysql_query("select * from society_fresh where sId='$sId'"));
 //查看是否关注此社团
 $concern=mysql_fetch_array(mysql_query("select isManage from user_society_relation where societyId='$sId' and userId='$uId'"));
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
