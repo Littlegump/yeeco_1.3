@@ -49,24 +49,27 @@ function change_concern(t){
 function concern(){	
 	var type=$(".concern").attr('id');
 	if(type == 'concern'){
-		//如果未关注
+		//如果未关注，进行关注
 		$.ajax({
 			type:"GET",
-			url:"#?action=concern",
-			dataType:"json",
+			url:"../background/background_society/isConcern.php?action=concern&sId="+$("#sId").val()+"&uId="+$("#uId").val(),
 			success:function(){change_concern(1);},
 			error:function(jqXHR){alert("操作失败"+jqXHR.status);}
 		})
 		
 	}else{
-		//如果已经关注
-		$.ajax({
-			type:"GET",
-			url:"#?action=cancelConcern",
-			dataType:"json",
-			success:function(){change_concern(2);},
-			error:function(){alert("操作失败");}
-		})
+		//如果已经关注，取消关注
+		var isManage=$("#isManage").val();
+		if(isManage==4){
+			$.ajax({
+				type:"GET",
+				url:"../background/background_society/isConcern.php?action=cancelConcern&sId="+$("#sId").val()+"&uId="+$("#uId").val(),
+				success:function(){change_concern(2);},
+				error:function(){alert("操作失败");}
+			})
+		}else{
+			alert("您是该社团成员，默认为关注，无法取消关注！");	
+		}
 	}
 }
 var t=1;
