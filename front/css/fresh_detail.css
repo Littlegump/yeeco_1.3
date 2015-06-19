@@ -206,10 +206,16 @@ body{
 		border:1px solid #fff;
 		line-height:20px;}
 
+<<<<<<< HEAD
+=======
+
+/*报名表样式*/
+>>>>>>> origin/lsl_develop
 .app_form{
 	z-index:11;
 	position:fixed;
 	top:50%;
+<<<<<<< HEAD
 	margin-top:-300px;
 	left:50%;
 	margin-left:-270px;
@@ -232,6 +238,7 @@ body{
 	.app_form strong{
 		display:block;
 		width:500px;
+<<<<<<< HEAD
 		margin:5px auto;
 =======
 		margin:10px auto;
@@ -242,6 +249,8 @@ body{
 	.app_form strong a{
 		float:right;
 		font-size:24px;}
+
+<<<<<<< HEAD
 
 
 
