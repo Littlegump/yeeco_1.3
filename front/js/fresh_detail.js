@@ -13,7 +13,7 @@ $(document).ready(function(){
 			$(this).css("border","1px solid #fff");
 		}
 	})
-	
+
 	//报名表下，表达那样式不可用
 	$(".app_form textarea").focus(function(){
 		$(this).css("border","0 solid #fff");
@@ -27,6 +27,7 @@ $(document).ready(function(){
 	$(".app_form :text").blur(function(){
 		$(this).css("border","0 solid #fff");
 	})
+
 	$("#read_form").hover(function(){
 		$("#read_form i").css("background-position","0 -75px");
 	},function(){
