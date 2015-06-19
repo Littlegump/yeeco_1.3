@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 error_reporting(E_ALL & ~E_NOTICE);
 require_once('../background/conf/connect.php');
 $sId=$_GET['sId'];
@@ -24,7 +24,9 @@ $fBoard=$sinfoResult['Board'];
 <div class="top_back">
   <div class="top">
       <ul>
-        <li class="a">MT音乐俱乐部&nbsp;·&nbsp;纳新</li>
+
+        <li class="a"><?php  echo $freshResult['sName']?>&nbsp;·&nbsp;纳新</li>
+
         <li class="b">返回&nbsp&nbsp;<a href="society_home.php?sId=<?php echo $sId?>">我的社团>></a></li>
       </ul>
   </div>
@@ -126,8 +128,86 @@ $fBoard=$sinfoResult['Board'];
 <!--查看、打印报名表--> 
 <div class="app_form" id="form_box" style="display:none;">
 	<strong>报名表<a href="javascript:return_main()">&times;</a></strong>
-	
+	      <label><span>*</span>填写报名表：</label>
+<form action="background/society-apply-form.php" method="post" name="apply_table">
+       <input type="hidden" name="sId" value="<?php echo $sId?>">
+       <input type="hidden" name="fId" value="<?php echo $fId?>">
+       <input type="hidden" name="userId" value="<?php echo $userId?>">
+<table cellspacing="0">
+  <tr>
+    <td width=80>姓名</td>
+    <td width=120><input type="text" name="aName" required="required"/></td>
+    <td width=80>性别</td>
+    <td width=120><input type="text" name="aSex" required="required"/></td>
+    <td width=100 rowspan="4" class="photo">
+  </tr>
+  <tr>
+    <td>出生年月</td>
+    <td><input type="text" name="aBirthday" required="required"/></td>
+    <td>籍贯</td>
+    <td><input type="text" name="aNative" required="required"/></td>
+  </tr>
+  <tr>
+    <td>专业班级</td>
+    <td><input type="text" name="aClass" required="required"/></td>
+    <td>联系电话</td>
+    <td><input type="text" name="aTel" required="required"/></td>
+  </tr>
+  <tr>
+    <td>个人邮箱</td>
+    <td><input type="text" name="aEmail" required="required"/></td>
+    <td>QQ</td>
+    <td><input type="text" name="aQQ" required="required"/></td>
+  </tr>
+  <tr>
+    <td>兴趣爱好</td>
+    <td colspan="4"><input type="text" name="aFavor" style="width:100%;"/></td>
+  </tr>
+  <tr>
+    <td>特长优势</td>
+    <td colspan="4"><input type="text" name="aStrong" style="width:100%;"/></td>
+  </tr>
+  <tr>
+    <td colspan="5">
+    <p>1、<?php echo $fresh['fQue_1']?></p>
+    <textarea name="aAnser_1"></textarea>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="5">
+    <p>2、<?php echo $fresh['fQue_2']?></p>
+    <textarea name="aAnser_2"></textarea>
+    </td>
+  </tr>   
+  <tr>
+    <td colspan="5">
+    <p>3、<?php echo $fresh['fQue_3']?></p>
+    <textarea name="aAnser_3"></textarea>
+    </td>
+  </tr>
+</table>
+<label><span>*</span>选择部门：</label>
+<select name="department">
+                <option value="0">任意部门</option>
+                <option value="<?php echo $value['id']?>"><?php echo $value['depName']?></option>
+            </select>
+<input type="button" value="打印" class="button">
+         <div style="clear:both;"></div> 
+</form>
+    <div style="clear:both;"></div>
 </div>
+<div style="clear:both;"></div>
+<!--公式提醒框--> 
+<div class="notice_box" id="notice_box" style="display:none;">
+	<strong>本次纳新结束，是否将本次纳新结果进行公示？</strong>
+    <p>注：公示为期 一周，一周后将自动关闭公示；<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;公示结果仅本校内同学可见！</p>
+    <div class="choose"><a class="button">公示</a><a class="button">不公示</a></div>
+</div>
+
+
+
+
+
 <!--侧边快捷操作面板--> 
 <div class="icon_box">
 	<a href=""><div id="icon_1"></div></a>

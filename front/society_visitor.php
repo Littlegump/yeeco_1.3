@@ -1,14 +1,14 @@
 <?php
 error_reporting(E_ALL & ~E_NOTICE);
 require_once('../background/conf/connect.php');
-$concern=0;//是否已经关注此社团的标志，若已关注，该值为“1”，否则为“0”；
 $sId=$_GET['sId'];
 $uId=$_GET['uId'];
 //查找社团信息
 $sInfo=mysql_fetch_array(mysql_query("select * from society where sId='$sId'"));
 //查找纳新信息
 $fInfo=mysql_fetch_array(mysql_query("select * from society_fresh where sId='$sId'"));
-
+//查看是否关注此社团
+$concern=mysql_fetch_array(mysql_query("select isManage from user_society_relation where societyId='$sId' and userId='$uId'"));
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -135,6 +135,7 @@ $fInfo=mysql_fetch_array(mysql_query("select * from society_fresh where sId='$sI
 
 
 <!--查看、打印报名表--> 
+    <input type="hidden" id="isManage" value="<?php echo $concern['isManage']?>">
     <input type="hidden" id="sId" value="<?php echo $sId?>">
     <input type="hidden" id="uId" value="<?php echo $uId?>">
     <input type="hidden" id="sName" value="<?php echo $sInfo['sName']?>">
@@ -159,10 +160,9 @@ $fInfo=mysql_fetch_array(mysql_query("select * from society_fresh where sId='$sI
 <script src="js/pic_preview.js" type="text/javascript"></script>
 <script src="js/society_visitor.js" type="text/javascript"></script>
 <?php
-	if($concern == 1){
+	if($concern['isManage']){
+		//已关注
 		echo "<script>change_concern(1);</script>";
-	}else{
-		echo "<script>change_concern(2);</script>";
 	}
 	if(mysql_num_rows(mysql_query("select aId from apply_information_unselected where uId='$uId' and sId='$sId'"))){
 		echo "<script>$('.handle_2').text('等待审核').removeAttr('href');</script>";
